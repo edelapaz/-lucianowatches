@@ -1,0 +1,206 @@
+﻿<!-- AUTHOR: Yorki E. Encarnacion Moquete -->
+<style>
+    .selectdemoSelectHeader {
+        /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */
+    }
+
+        .selectdemoSelectHeader .demo-header-searchbox {
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+        }
+
+        .selectdemoSelectHeader .demo-select-header {
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+            padding-left: 10.667px;
+            height: 48px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: auto;
+        }
+
+        .selectdemoSelectHeader md-content._md {
+            max-height: 240px;
+        }
+</style>
+<div ng-controller="RequerimientoController as View" layout="column">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" style="background-color:rgb(0, 118, 205)!important"
+                layout="row"
+                layout-align="space-between center">
+        <div class="md-toolbar-tools">
+            <h5>Requerimientos</h5>
+        </div>
+        <div title="Ayuda"
+             ng-click="View.ShowAdvancedfiltro = true"
+             onclick="javascript: introJs().setOption('nextLabel', 'Siguiente').setOption('prevLabel', 'Anterior').setOption('doneLabel', 'Listo').setOption('exitOnEsc', true).setOption('showStepNumbers', true).setOption('showProgress', true).setOption('skipLabel', 'Omitir').start();"
+             style="padding:16px; cursor:pointer">
+            <i class="ti-help-alt"> </i>
+        </div>
+    </md-toolbar>
+
+    <div class="bgc-white p-20 bd col-md-12">
+        <div class="col-md-12">
+            <h5>Filtros</h5>
+            <hr />
+            <!--<pre>{{View.EstadoRequerimiento|json}}</pre>-->
+        </div>
+
+        <div layout-gt-sm="row">
+            <!--<div class="col-md-4">
+        <label>Estado</label>
+        <md-select ng-model="View.filtro.Estado"
+                   style="margin-top:0!important">
+            <md-option ng-repeat="item in View.EstadoRequerimiento" value="{{item.idEstadoRequerimiento}}">{{item.nombreEstadoRequerimiento}}</md-option>
+        </md-select>
+    </div>-->
+
+            <!--<div class="col-md-4">
+                <label>Departamento</label>
+                <md-select ng-model="View.filtro.IdDepartamento"
+                           style="margin-top:0!important">
+                    <md-option ng-repeat="item in View.Departamento" value="{{item.departmentID}}">{{item.departmentName}}</md-option>
+            </div>-->
+            <div class="form-group col-md-4">
+                <label class="fw-500">Desde</label>
+                <input type="date"
+                       class="form-control"
+                       id="exampleInputEmail1"
+                       ng-model="View.filtro.StartDate"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter email">
+            </div>
+            <div class="form-group col-md-4">
+                <label class="fw-500">Hasta</label>
+                <input type="date"
+                       class="form-control"
+                       ng-model="View.filtro.EndDate"
+                       id="exampleInputEmail1"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter email">
+            </div>
+
+        </div>
+
+        <!--<div layout-gt-sm="row" ng-if="View.ShowAdvancedfiltro">
+            <div class="form-group col-md-4">
+                <label class="fw-500">Fecha Inicio</label>
+                <input type="date"
+                       class="form-control"
+                       id="exampleInputEmail1"
+                       ng-model="VM.filtro.StartDate"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter email">
+            </div>
+            <div class="form-group col-md-4">
+                <label class="fw-500">Fecha Fin</label>
+                <input type="date"
+                       class="form-control"
+                       ng-model="VM.filtro.EndDate"
+                       id="exampleInputEmail1"
+                       aria-describedby="emailHelp"
+                       placeholder="Enter email">
+            </div>
+        </div>-->
+
+
+
+        <div layout="row" layout-align="space-between start">
+            <div>
+                <md-button class="md-raised md-primary"
+                           ng-href="/#!/Registrar/RequerimientoDet" style="background-color:rgb(0, 118, 205)!important">Añadir</md-button>
+                <!--<md-button class="md-primary"
+                           data-step="3"
+                           data-intro="Si necesitas hacer una búsqueda más especifica, presiona acá para mostrar los demás filtros disponibles."
+                           ng-if="!View.ShowAdvancedfiltro"
+                           ng-click="View.ShowAdvancedfiltro = true;"><span class="ti-angle-down"></span>&nbsp;&nbsp;Filtros Avanzados</md-button>
+                <md-button class="md-primary"
+                           data-step="3"
+                           data-intro="Si necesitas hacer una búsqueda más especifica, presiona acá para mostrar los demás filtros disponibles."
+                           ng-if="View.ShowAdvancedfiltro"
+                           ng-click="View.ShowAdvancedfiltro = false;"><span class="ti-angle-up"></span>&nbsp;&nbsp;Ocultar Filtros Avanzados</md-button>-->
+            </div>
+            <div>
+                <md-button class="md-primary"
+                           style="color: rgb(255, 87, 93); border-color: red; border-width: 1px; border-style: solid;"
+                           ng-disabled="View.loadingDocuments"
+                           ng-click="View.filtro=null;View.GetRequerimientos()"><span class="ti-na"></span>&nbsp;&nbsp;Limpiar Filtros</md-button>
+                <md-button class="md-primary"
+                           style="color: #3f51b5; border-color: #3f51b5; border-width: 1px; border-style: solid;"
+                           ng-disabled="View.loadingDocuments"
+                           ng-click="View.GetRequerimientos()"><span class="ti-reload"></span>&nbsp;&nbsp;Refrezcar</md-button>
+                <md-button class="md-raised md-primary"
+                           style="background-color:rgb(0, 118, 205)!important"
+                           data-step="2"
+                           data-intro="Luego de introducir el/los filtros, presiona este botón"
+                           ng-disabled="View.loadingDocuments"
+                           ng-click="View.GetRequerimientos()"><span class="ti-search"></span>&nbsp;&nbsp;Filtrar</md-button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h6 ng-if="!View.Requerimientos.length && !View.loadingDocuments" style="font-weight: 600;color: #3f51b5; text-align: center;">No hay Registros</h6>
+                <md-table-container data-step="4"
+                                    data-intro="Aquí serán mostrados los registros segun tu criterio de búsqueda (filtros)"
+                                    ng-if="!View.loadingDocuments && View.Requerimientos.length"
+                                    style="width:100%!important;font-weight:500!important">
+                    <table md-table multiple ng-model="selected" md-progress="promise">
+                        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                            <tr md-row>
+                                <th md-column>No.Requerimiento</th>
+                                <th md-column>Fecha</th>
+                                <th md-column>Destino</th>
+                                <th md-column>Departamento</th>
+                                <th md-column>Almacen</th>
+                                <!--<th md-column>Observacion</th>-->
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="requerimientos in View.Requerimientos">
+                                <td md-cell>{{requerimientos.idRequerimiento}}</td>
+                                <td md-cell>{{View.formatDate(requerimientos.fechaRequerimiento)}}</td>
+                                <td md-cell>{{requerimientos.destinoRequerimiento}}</td>
+                                <td md-cell>{{requerimientos.departmentName}}</td>
+                                <td md-cell>{{requerimientos.nombreAlmacen}}</td>
+                                <!--<td md-cell>{{requerimientos.observacionRequerimiento}}</td>-->
+
+                                <td layout="col" layout-align="end center" style="padding:0!important" md-cell>
+                                    <md-button md-no-ink class="md-primary"
+                                               ng-if="requerimientos.idEstadoRequerimiento==1"
+                                               href="/#!/Registrar/RequerimientoDet/{{requerimientos.idRequerimiento}}"
+                                               style="color:blue">
+                                        Editar
+                                    </md-button>
+                                    <md-button md-no-ink class="md-primary"
+                                               ng-if="requerimientos.idEstadoRequerimiento==3"
+                                               href="/#!/Registrar/RequerimientoDet/{{requerimientos.idRequerimiento}}"
+                                               style="color:blue">
+                                        Aprobar
+                                    </md-button>
+                                    <!--<md-button md-no-ink class="md-primary"
+                                                   style="color:red">
+                                            Eliminar
+                                        </md-button>-->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination 
+                                     md-limit="View.limit"
+                                     data-step="5"
+                                     data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                     md-limit-options="[10,20,30,40]"
+                                     md-page="View.page"
+                                     md-total="{{View.totalReq}}"
+                                     md-on-paginate="View.GetRequerimientos"
+                                     md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                     md-page-select></md-table-pagination>
+            </div>
+        </div>
+    </div>
+</div>

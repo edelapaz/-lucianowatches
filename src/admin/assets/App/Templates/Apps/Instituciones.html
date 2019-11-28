@@ -1,0 +1,120 @@
+﻿<!-- AUTHOR: Brawny Javier Mateo Reyes -->
+<div ng-controller="InstitutionsController as vm" class="row">
+    <div class="masonry-item col-md-12" style="margin-bottom:15px!important">
+        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions"
+                    layout="row"
+                    layout-align="space-between center">
+            <div class="md-toolbar-tools">
+                <h5>Instituciones</h5>
+            </div>
+            <div title="Ayuda"
+                 onclick="javascript: introJs().setOption('nextLabel', 'Siguiente').setOption('prevLabel', 'Anterior').setOption('doneLabel', 'Listo').setOption('exitOnEsc', true).setOption('showStepNumbers', true).setOption('showProgress', true).setOption('skipLabel', 'Omitir').start();"
+                 style="padding:16px; cursor:pointer">
+                <i class="ti-help-alt"> </i>
+            </div>
+        </md-toolbar>
+        <div class="bgc-white p-20 bd">
+            <div class="mT-30">
+                <form>
+                    <div class="row"
+                         data-step="1"
+                         data-intro="Introduce aquí los datos de la Institución que deseas crear.">
+                        <div class="col-md-6">
+                            <md-input-container style="margin-bottom:0!important" class="md-block" flex-gt-sm>
+                                <label>Nombre de la Institucion</label>
+                                <input ng-model="vm.NewInstitution.InstitutionName">
+                            </md-input-container>
+                        </div>
+                        <div class="col-md-3">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Numero de T&eacute;lefono</label>
+                                <input name="phone" ng-model="vm.NewInstitution.PhoneNumber" />
+                            </md-input-container>
+                        </div>
+                        <div class="col-md-3">
+                            <md-input-container class="md-block" flex-gt-sm>
+                                <label>Acr&oacute;nimo</label>
+                                <input name="phone" ng-model="vm.NewInstitution.InstitutionAcronyms" />
+                            </md-input-container>
+                        </div>
+                        <div class="col-md-12">
+                            <div layout="row" layout-align="end start">
+                                <md-button class="md-raised md-primary"
+                                           data-step="2"
+                                           data-intro="Luego presiona este botón para enviar la solicitud de creación."
+                                           ng-disabled="vm.isCreatingAnInstitution"
+                                           ng-click="vm.CreateInstitution(vm.NewInstitution)">Añadir</md-button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="masonry-item col-md-12">
+        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions">
+            <div class="md-toolbar-tools"> <h5>Instituciones</h5></div>
+        </md-toolbar>
+        <div class="bgc-white p-20 bd">
+            <div class="row" layout="row" layout-align="end start">
+                <form ng-submit="vm.GetInstitutions()"
+                      class="col-md-12">
+                    <div>
+                        <md-input-container style="margin-bottom:0!important"
+                                            class="md-block"
+                                            data-step="3"
+                                            data-intro="Introduce aqui algún criterio de búsqueda para filtrar las instituciones mostradas."
+                                            flex-gt-sm>
+                            <label>Filtro</label>
+                            <input ng-model="vm.lookupFilter">
+                        </md-input-container>
+                    </div>
+                </form>
+                <div>
+
+                    <md-button class="md-raised md-primary pull-right"
+                               data-step="4"
+                               data-intro="Luego de introducir el/los filtros, presiona este botón"
+                               ng-disabled="VM.loadingDocuments"
+                               ng-click="vm.GetInstitutions(vm.page,vm.limit)">Filtrar</md-button>
+                </div>
+            </div>
+            <md-table-container data-step="5"
+                                data-intro="Acá aparecerán las instituciones.">
+                <table md-table>
+                    <thead md-head>
+                        <tr md-row>
+                            <th md-column>Nombre Instituci&oacute;n</th>
+                            <th md-column>Acr&oacute;nimo</th>
+                            <th md-column>T&eacute;lefono</th>
+                            <th>                            </th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row ng-repeat="institution in vm.Institutions">
+                            <td md-cell ng-click="vm.Edit(institution,'institutionName', 'Nombre de la Institución')">{{institution.institutionName}}</td>
+                            <td md-cell  ng-click="vm.Edit(institution,'institutionAcronyms', 'Acrónimo/Siglas')">{{institution.institutionAcronyms}}</td>
+                            <td md-cell ng-click="vm.Edit(institution,'phoneNumber','Número de Télefono')">{{institution.phoneNumber}}</td>
+                            <td layout="col" layout-align="end center" style="padding:0!important" md-cell>
+                                <md-button md-no-ink class="md-primary"
+                                           ng-click="vm.Delete(institution, $event)"
+                                           style="color:red">
+                                    Eliminar
+                                </md-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vm.limit"
+                                 md-limit-options="[10,20,30,40]"
+                                 md-page="vm.page"
+                                 md-total="{{vm.total}}"
+                                 md-on-paginate="vm.GetInstitutions"
+                                 data-step="6"
+                                 data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                 md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                 md-page-select></md-table-pagination>
+        </div>
+    </div>
+</div>

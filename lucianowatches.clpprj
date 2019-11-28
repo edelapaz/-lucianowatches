@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="C:\xampp\htdocs\-lucianowatches\lucianowatches.clpprj">
+	<settings><PM_URL><![CDATA[C:/xampp/htdocs/-lucianowatches/]]></PM_URL><PM_HOME_URL><![CDATA[C:/xampp/htdocs/-lucianowatches/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><lastopfiles>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\frontend\template\layout.php"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\frontend\inicio.php"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\style.css"/>
+	</lastopfiles>
+	<errors version="5.11">
+	</errors>
+	<cakedata>
+	</cakedata>
+	<dplmenupath>
+	</dplmenupath><laravael>
+	</laravael><smartyassings>
+	</smartyassings><twigtemplate>
+	</twigtemplate><yiidata>
+	</yiidata>
+	<todoblock>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\bootstrap\dist\js\bootstrap.js">
+			<todo name="TODO: Check whether guarding this code with this `if` is really necessary." pos="28;1575"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery\dist\jquery.js">
+			<todo name="TODO: identify versions" pos="8;770"/>
+			<todo name="TODO: identify versions" pos="7;784"/>
+			<todo name="TODO: Now that all calls to _data and _removeData have been replaced" pos="2;3907"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\core\Loader.php">
+			<todo name="todo	Figure out a way to move this to the constructor" pos="5;148"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\core\Output.php">
+			<todo name="todo	We need to figure out how to permit headers to be cached." pos="5;209"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\database\DB_forge.php">
+			<todo name="todo	Remove deprecated $_after option in 3.1+" pos="5;558"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\database\DB_query_builder.php">
+			<todo name="@todo error" pos="4;2003"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite3\sqlite3_driver.php">
+			<todo name="todo	Implement use of SQLite3::querySingle(), if needed" pos="5;120"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite3\sqlite3_forge.php">
+			<todo name="todo	implement drop_column(), modify_column()" pos="5;135"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite\sqlite_forge.php">
+			<todo name="todo	implement drop_column(), modify_column()" pos="5;115"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\helpers\date_helper.php">
+			<todo name="todo	Remove in version 3.1+." pos="5;134"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\helpers\file_helper.php">
+			<todo name="todo	Remove in version 3.1+." pos="5;58"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\helpers\security_helper.php">
+			<todo name="todo	Remove in version 3.1+." pos="5;89"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\helpers\string_helper.php">
+			<todo name="todo	Remove in version 3.1+." pos="5;64"/>
+			<todo name="todo: remove in 3.1+" pos="19;229"/>
+			<todo name="todo: remove in 3.1+" pos="20;232"/>
+			<todo name="todo	Remove in version 3.1+." pos="5;292"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\helpers\url_helper.php">
+			<todo name="todo	Remove old 'dash' and 'underscore' usage in 3.1+." pos="5;472"/>
+		</todofile>
+		<todofile name="C:\xampp\htdocs\-lucianowatches\system\libraries\Xmlrpc.php">
+			<todo name="@todo - this needs to be made more general purpose" pos="6;1574"/>
+		</todofile>
+	</todoblock>
+	<filescache>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\drivers\Session_redis_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\drivers\Session_memcached_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\drivers\Session_files_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\drivers\Session_database_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\drivers\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\SessionHandlerInterface.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\Session_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\Session.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Session\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Javascript\Jquery.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Javascript\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\drivers\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\drivers\Cache_wincache.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\drivers\Cache_redis.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\drivers\Cache_memcached.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\drivers\Cache_file.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\drivers\Cache_dummy.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\drivers\Cache_apc.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cache\Cache.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Zip.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Xmlrpcs.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Xmlrpc.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\User_agent.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Upload.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Unit_test.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Typography.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Trackback.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Table.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Profiler.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Parser.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Pagination.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Migration.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Javascript.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Image_lib.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Ftp.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Form_validation.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Encryption.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Encrypt.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Email.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Cart.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\libraries\Calendar.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\upload_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\unit_test_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\profiler_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\pagination_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\number_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\migration_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\imglib_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\ftp_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\form_validation_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\email_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\db_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\date_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\english\calendar_lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\language\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\xml_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\url_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\typography_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\text_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\string_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\smiley_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\security_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\path_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\number_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\language_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\inflector_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\html_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\form_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\file_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\email_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\download_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\directory_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\date_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\cookie_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\captcha_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\helpers\array_helper.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\fonts\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlsrv\sqlsrv_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlsrv\sqlsrv_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlsrv\sqlsrv_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlsrv\sqlsrv_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlsrv\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite3\sqlite3_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite3\sqlite3_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite3\sqlite3_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite3\sqlite3_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite3\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite\sqlite_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite\sqlite_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite\sqlite_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite\sqlite_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\sqlite\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\postgre\postgre_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\postgre\postgre_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\postgre\postgre_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\postgre\postgre_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\postgre\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_sqlsrv_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_sqlsrv_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_sqlite_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_sqlite_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_pgsql_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_pgsql_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_odbc_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_odbc_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_oci_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_oci_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_mysql_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_mysql_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_informix_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_informix_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_ibm_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_ibm_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_firebird_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_firebird_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_dblib_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_dblib_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_cubrid_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_cubrid_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_4d_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\pdo_4d_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\subdrivers\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\pdo_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\pdo_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\pdo_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\pdo_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\pdo\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\odbc\odbc_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\odbc\odbc_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\odbc\odbc_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\odbc\odbc_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\odbc\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\oci8\oci8_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\oci8\oci8_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\oci8\oci8_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\oci8\oci8_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\oci8\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysqli\mysqli_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysqli\mysqli_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysqli\mysqli_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysqli\mysqli_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysqli\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysql\mysql_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysql\mysql_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysql\mysql_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysql\mysql_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mysql\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mssql\mssql_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mssql\mssql_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mssql\mssql_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mssql\mssql_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\mssql\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\ibase\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\ibase\ibase_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\ibase\ibase_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\ibase\ibase_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\ibase\ibase_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\cubrid\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\cubrid\cubrid_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\cubrid\cubrid_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\cubrid\cubrid_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\cubrid\cubrid_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\drivers\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\DB_utility.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\DB_result.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\DB_query_builder.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\DB_forge.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\DB_driver.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\DB_cache.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\database\DB.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\compat\standard.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\compat\password.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\compat\mbstring.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\compat\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\compat\hash.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Utf8.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\URI.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Security.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Router.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Output.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Model.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Log.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Loader.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Lang.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Input.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Hooks.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Exceptions.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Controller.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Config.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Common.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\CodeIgniter.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\core\Benchmark.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\system\.htaccess" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\utility.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\touch.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\toggle.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\tab.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\switcher.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\smooth-scroll.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\scrollspy.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\offcanvas.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\nav.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\modal.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\grid.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\dropdown.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\cover.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\core.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\button.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\core\alert.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\upload.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\tooltip.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\timepicker.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\sticky.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\sortable.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\slideshow.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\slideshow-fx.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\slideset.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\slider.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\search.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\parallax.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\pagination.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\notify.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\nestable.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\lightbox.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\htmleditor.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\grid.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\grid-parallax.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\form-select.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\form-password.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\datepicker.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\autocomplete.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\components\accordion.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\uikit.min.js" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\js\jquery.min.js" crc="1524747946"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\upload.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\upload.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\upload.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\upload.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\upload.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\upload.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\tooltip.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\tooltip.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\tooltip.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\tooltip.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\tooltip.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\tooltip.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sticky.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sticky.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sticky.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sticky.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sticky.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sticky.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sortable.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sortable.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sortable.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sortable.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sortable.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\sortable.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slideshow.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slideshow.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slideshow.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slideshow.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slideshow.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slideshow.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slider.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slider.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slider.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slider.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slider.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slider.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slidenav.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slidenav.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slidenav.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slidenav.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slidenav.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\slidenav.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\search.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\search.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\search.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\search.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\search.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\search.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\progress.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\progress.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\progress.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\progress.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\progress.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\progress.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\placeholder.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\placeholder.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\placeholder.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\placeholder.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\placeholder.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\placeholder.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\notify.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\notify.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\notify.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\notify.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\notify.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\notify.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\nestable.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\nestable.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\nestable.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\nestable.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\nestable.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\nestable.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\htmleditor.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\htmleditor.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\htmleditor.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\htmleditor.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\htmleditor.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\htmleditor.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-select.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-select.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-select.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-select.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-select.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-select.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-password.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-password.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-password.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-password.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-password.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-password.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-file.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-file.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-file.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-file.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-file.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-file.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-advanced.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-advanced.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-advanced.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-advanced.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-advanced.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\form-advanced.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\dotnav.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\dotnav.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\dotnav.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\dotnav.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\dotnav.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\dotnav.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\datepicker.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\datepicker.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\datepicker.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\datepicker.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\datepicker.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\datepicker.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\autocomplete.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\autocomplete.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\autocomplete.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\autocomplete.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\autocomplete.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\autocomplete.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\accordion.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\accordion.gradient.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\accordion.gradient.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\accordion.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\accordion.almost-flat.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\components\accordion.almost-flat.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\uikit.min.css" crc="1516647908"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\theme\css\style.css" crc="1574967079"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery-validation\dist\jquery.validate.min.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery-validation\dist\jquery.validate.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery-validation\dist\additional-methods.min.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery-validation\dist\additional-methods.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery\dist\jquery.min.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery\dist\jquery.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\jquery\LICENSE.txt" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\bootstrap\dist\js\npm.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\bootstrap\dist\js\bootstrap.min.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\bootstrap\dist\js\bootstrap.js" crc="1525976800"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\bootstrap\dist\css\bootstrap.min.css" crc="1525976799"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\bootstrap\dist\css\bootstrap.css" crc="1525976799"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\bootstrap\dist\css\bootstrap-theme.min.css" crc="1525976799"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\lib\bootstrap\dist\css\bootstrap-theme.css" crc="1525976799"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\js\site.min.js" crc="1525976799"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\js\site.js" crc="1525976799"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\css\site.min.css" crc="1525976799"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\css\site.css" crc="1525976799"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Plugins\Sweet-modal-1.3.3\jquery.sweet-modal.min.js" crc="1495878154"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Plugins\Sweet-modal-1.3.3\jquery.sweet-modal.min.css" crc="1495878154"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Plugins\momentsjs\moment-with-locales.min.js" crc="1526648149"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Plugins\IntroJS\introjs.min.css" crc="1524483498"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Plugins\IntroJS\introjs-rtl.min.css" crc="1524483498"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Plugins\IntroJS\intro.min.js" crc="1524483498"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Plugins\angularUi\ui-select\select.min.js" crc="1525271498"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Plugins\angularUi\ui-select\select.min.css" crc="1525271475"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\AngularMaterial\angularmaterial.css" crc="1525183509"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\AngularMaterial\angular-material.min.js" crc="1525183529"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\angular-messages\angular-messages.min.js" crc="1525275118"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\angular-aria\angular-aria.min.js" crc="1525275081"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\angular-animate\angular-animate.min.js" crc="1525275049"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\NgRoute.js" crc="1524750642"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\Jquery3.3.1.min.js" crc="1524747946"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\canvasjs.min.js" crc="1562825040"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\bootstrap.min.js" crc="1523278722"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\AngularJS.js" crc="1524747880"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\Js\angular-sanitize.min.js" crc="1525274087"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\css\loader.css" crc="1524857037"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\css\bootstrap.min.css" crc="1523278714"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\css\bootstrap.css" crc="1523278708"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\css\bootstrap-reboot.min.css" crc="1523278716"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\css\bootstrap-reboot.css" crc="1523278708"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\css\bootstrap-grid.min.css" crc="1523278716"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\css\bootstrap-grid.css" crc="1523278708"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\css\animate.css" crc="1524762065"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\RequerimientoCompra\RequerimientosComp.html" crc="1572533457"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\RequerimientoCompra\RequerimientoCompDet.html" crc="1572534342"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\SolicitudDet.html" crc="1565882941"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\Solicitud.html" crc="1566227720"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\Requerimientos.html" crc="1572368103"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\RequerimientoDet.html" crc="1573223239"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\IndexDespacho.html" crc="1572369773"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\IndexAprobacionCompra.html" crc="1562956199"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\IndexAprobacion.html" crc="1572359658"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\IndexAjuste.html" crc="1573568746"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\Externo.html" crc="1562078955"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\Entrada.html" crc="1563886601"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\DespachoDet.html" crc="1573128601"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\Descargo.html" crc="1563886632"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Registrar\AprobacionDet.html" crc="1572374925"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Auxiliares\UnidadMedida.html" crc="1562767775"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Auxiliares\UbicacionArticulo.html" crc="1572637391"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Auxiliares\Ubicacion.html" crc="1562767840"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Auxiliares\IndexArticulo.html" crc="1563300626"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Auxiliares\Encargado.html" crc="1572635173"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Auxiliares\BuscarMaterial.html" crc="1562167079"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Auxiliares\Articulo.html" crc="1562954534"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Auxiliares\Almacen.html" crc="1560347078"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Apps\UserSearch.html" crc="1529069334"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Apps\NewUser.html" crc="1529069330"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Apps\NewApp.html" crc="1529069323"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Apps\Instituciones.html" crc="1559922321"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Apps\AppsList.html" crc="1529069316"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Apps\Apps.html" crc="1529069310"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Apps\App.html" crc="1529069305"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Notificacion.html" crc="1567087242"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\IndexPrincipal.html" crc="1572611903"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Templates\Dashboard.html" crc="1529069355"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Services\ValidatorsService.js" crc="1529069437"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Services\APIService.js" crc="1572632912"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Ng-Plugins\md-data-table\md-data-table.min.js" crc="1524608668"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Ng-Plugins\md-data-table\md-data-table.min.css" crc="1524608668"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Ng-Plugins\md-data-table\md-data-table.js" crc="1524608668"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Ng-Plugins\md-data-table\md-data-table.css" crc="1524608668"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Ng-Plugins\angular-material-fileinput\lf-ng-md-file-input.min.js" crc="1526062877"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Ng-Plugins\angular-material-fileinput\lf-ng-md-file-input.min.css" crc="1506948680"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Ng-Plugins\angular-material-fileinput\lf-ng-md-file-input.js" crc="1506948680"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Ng-Plugins\angular-material-fileinput\lf-ng-md-file-input.css" crc="1506948680"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\UnidadMedidaController.js" crc="1561476913"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\UbicacionController.js" crc="1566417358"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\SolicitudOrdenCompraController.js" crc="1566227491"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\RequerimientoController.js" crc="1573476012"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\NotificacionesController.js" crc="1567090761"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\LayoutController.js" crc="1572978819"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\InternalRegistController.js" crc="1562779953"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\InstitutionsController.js" crc="1560276032"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\IndexPrincipalController.js" crc="1569931914"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\ExternalRegistController.js" crc="1530298102"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\EncargadoController.js" crc="1572635681"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\DocumentController.js" crc="1561377973"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\ArticuloController.js" crc="1565192258"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\AlmacenController.js" crc="1563990084"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\Controllers\AjusteController.js" crc="1573568754"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\assets\App\AppContext.js" crc="1572618882"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\vendor.js" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\vector-maps.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\ui.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\style.css" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\signup.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\signin.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\sectors.js" crc="1525192674"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\province.js" crc="1525192264"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\municipios.js" crc="1525192449"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\IndexMiscs.css" crc="1524747572"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\index.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\google-maps.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\forms.html" crc="1567438356"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\email.html" crc="1567519826"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\datatable.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\compose.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\chat.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\charts.html" crc="1568396581"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\calendar.html" crc="1567453978"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\buttons.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\bundle.js" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\blank.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\basic-table.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\500.html" crc="1529671957"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\src\admin\404.html" crc="1524744069"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\frontend\template\layout.php" crc="1574967053"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\frontend\inicio.php" crc="1574962715"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\html\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\html\error_php.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\html\error_general.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\html\error_exception.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\html\error_db.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\html\error_404.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\cli\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\cli\error_php.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\cli\error_general.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\cli\error_exception.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\cli\error_db.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\cli\error_404.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\errors\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\backend\template\layout.php" crc="1574962612"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\secure.php" crc="1574960509"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\views\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\third_party\PHPMailer\SMTP.php" crc="1564767058"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\third_party\PHPMailer\POP3.php" crc="1564767058"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\third_party\PHPMailer\PHPMailer.php" crc="1564767058"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\third_party\PHPMailer\OAuth.php" crc="1564767058"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\third_party\PHPMailer\Exception.php" crc="1564767058"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\third_party\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\models\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\logs\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\paypal\Paypal_pro.php" crc="1526906232"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\paypal\Paypal_adaptive.php" crc="1526906234"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\paypal\FillUtils.php" crc="1563306408"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\Template.php" crc="1574962629"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\Sftp.php" crc="1445986848"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\Phpmailer_lib.php" crc="1567195345"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\MY_zip.php" crc="1526906232"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\Facebook.php" crc="1570043031"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\Ecart.php" crc="1569940161"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\libraries\Card.php" crc="1547480232"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\upload_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\unit_test_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\profiler_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\pagination_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\number_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\migration_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\index.html" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\imglib_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\ftp_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\form_validation_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\email_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\db_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\date_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\spanish\calendar_lang.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\english\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\language\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\hooks\sce_firewall.php" crc="1574960334"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\hooks\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\helpers\seo_helper.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\helpers\sce_helper.php" crc="1570131046"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\helpers\notificacion_helper.php" crc="1567185795"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\helpers\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\helpers\csv_helper.php" crc="1566768918"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php" crc="1526906222"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\core\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\controllers\Secure.php" crc="1574960271"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\controllers\Inicio.php" crc="1574961474"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\controllers\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\user_agents.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\smileys.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\routes.php" crc="1574961364"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\profiler.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\paypal.php" crc="1562701502"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\mimes.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\migration.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\memcached.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\hooks.php" crc="1574959399"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\foreign_chars.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\facebook.php" crc="1570042947"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\doctypes.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\database.php" crc="1574962311"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\constants.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\config.php" crc="1574965574"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\config\autoload.php" crc="1574962178"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\cache\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\index.html" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\application\.htaccess" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\license.txt" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\index.php" crc="1568884124"/>
+		<file name="C:\xampp\htdocs\-lucianowatches\.htaccess" crc="1566768918"/>
+	</filescache>
+</project>

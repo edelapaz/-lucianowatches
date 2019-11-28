@@ -1,0 +1,317 @@
+﻿<!-- AUTHOR: Yorki E. Encarnacion M. -->
+<style>
+    .selectdemoSelectHeader {
+        /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */
+    }
+
+        .selectdemoSelectHeader .demo-header-searchbox {
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+        }
+
+        .selectdemoSelectHeader .demo-select-header {
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+            padding-left: 10.667px;
+            height: 48px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: auto;
+        }
+
+        .selectdemoSelectHeader md-content._md {
+            max-height: 240px;
+        }
+
+    md-autocomplete.custom-template {
+    }
+
+    .autocomplete-custom-template li {
+        border-bottom: 1px solid #ccc;
+        height: auto;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        white-space: normal;
+    }
+
+        .autocomplete-custom-template li:last-child {
+            border-bottom-width: 0;
+        }
+
+    .autocomplete-custom-template .item-title,
+    .autocomplete-custom-template .item-metadata {
+        display: block;
+        line-height: 2;
+    }
+
+        .autocomplete-custom-template .item-title md-icon {
+            height: 18px;
+            width: 18px;
+        }
+
+    .custom-container {
+        min-width: 300px !important;
+    }
+
+    [disabled] md-input-container .md-input, md-input-container .md-input[disabled] {
+        background-position: bottom -1px left 0;
+        background-size: 4px 1px;
+        background-repeat: repeat-x;
+        color: black !important
+    }
+
+    .md-select-value > span:not(.md-select-icon) .md-text {
+        display: inline;
+        color: black !important
+    }
+
+    .ribbon {
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+        width: 75px;
+        height: 75px;
+        text-align: right;
+        font-family: 'Hind Madurai', sans-serif;
+    }
+
+        .ribbon span {
+            font-size: 10px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 20px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            width: 100px;
+            display: block;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+            background: #7fc1fc;
+            background: linear-gradient(rgb(0, 188, 255) 0%, rgb(37, 151, 238) 100%);
+            position: absolute;
+            top: 19px;
+            letter-spacing: 1px;
+            left: -21px;
+        }
+</style>
+<div class="row" ng-controller="ArticuloController as View">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions"
+                layout="row"
+                layout-align="space-between center">
+        <div class="md-toolbar-tools">
+            <h5 ng-if="!View.NewArticulo.idArticulo">Creaci&oacute;n de Articulo</h5>
+            <h5 ng-if="View.NewArticulo.idArticulo">Registro No.{{View.NewArticulo.idArticulo}} {{View.NewArticulo.descripcionArticulo}}</h5>
+        </div>
+        <div title="Ayuda"
+             ng-click="VM.ShowAdvancedFilters = true"
+             onclick="javascript: introJs().setOption('nextLabel', 'Siguiente').setOption('prevLabel', 'Anterior').setOption('doneLabel', 'Listo').setOption('exitOnEsc', true).setOption('showStepNumbers', true).setOption('showProgress', true).setOption('skipLabel', 'Omitir').start();"
+             style="padding:16px; cursor:pointer">
+            <i class="ti-help-alt"> </i>
+        </div>
+    </md-toolbar>
+    <div class="bgc-white p-20 bd col-md-12" style="padding-bottom:15px!important">
+        <div>
+            <div layout="column">
+                <div flex>
+                </div>
+                <div layout-gt-xs="row" layout-padding style="background-color: #ffffff!important">
+                    <div ng-if="View.showNewLabel" class=ribbon><span>NUEVO</span></div>
+                    <md-card style="width: 100%!important;">
+                        <md-card-title layout="column" flex>
+                            <md-card-title-text>
+                                <span class="md-title">
+                                    <span class="ti-plus"></span> Añadir Articulo
+                                </span>
+
+                            </md-card-title-text>
+                            <!--<pre>{{View.NewArticulo|json}}</pre>-->
+                            <!--<pre>{{View.Clasificador|json}}</pre>-->
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+
+                                    <div class="col-md-6"
+                                         style="margin-top:15px!important" id="MaterialCreate">
+                                        <md-autocomplete ng-disabled=""
+                                                         md-selected-item="View.NewArticulo.idCBS"
+                                                         md-search-text-change="View.Materials.onTextChange(View.Articulo.LookUpText)"
+                                                         md-search-text="View.Articulo.LookUpText"
+                                                         md-selected-item-change="View.ClasificadorObjetoGasto(item.codigoCOG)"
+                                                         md-items="item in View.Materials.MaterialStore"
+                                                         md-item-text="item.descripcionCBS"
+                                                         md-min-length="3"
+                                                         placeholder="Empieza a escribir el codigo o nombre del material">
+                                            <md-item-template>
+                                                <span md-highlight-text="View.Articulo.LookUpText" md-highlight-flags="^i">{{item.descripcionCBS}}</span>
+                                            </md-item-template>
+                                        </md-autocomplete>
+                                    </div>
+
+                                    <md-input-container style="width:100%!important" ng-hide="!View.NewArticulo.idCBS" id="MaterialEdit">
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="View.Material.descripcionCBS" disabled>
+                                    </md-input-container>
+
+                                    <md-button class="md-fab md-mini md-primary " ng-click="showAdvanced($event)" ng-hide="View.NewArticulo.idArticulo"
+                                               data-toggle="tooltip" data-placement="bottom" title="Buscar material">
+                                        <span class="ti-search"></span>
+                                    </md-button>
+
+                                    <md-input-container style="width:30%!important">
+                                        <label>Codigo Articulo</label>
+                                        <input type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="View.NewArticulo.codigoArticulo">
+                                    </md-input-container>
+
+                                    <md-input-container flex="25" class="md-block">
+                                        <label style="margin: 0px !important;margin-left: 7px!important;">Estado<span style="color:red">*</span></label>
+                                        <md-select ng-disabled=""
+                                                   style="margin: 0px !important;margin-left: 7px!important;"
+                                                   ng-model="View.NewArticulo.idEstadoArticulo">
+                                            <md-option ng-repeat="item in View.EstadoArticulo" value="{{item.idEstadoArticulo}}">{{item.nombreEstadoArticulo}}</md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+                                </div>
+                            </div>
+
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+                                    <md-input-container style="width:100%!important">
+                                        <label>Clasificador Objeto Gasto</label>
+                                        <textarea type="text" class="form-control ng-pristine ng-valid ng-empty ng-touched"
+                                                  ng-model="View.Clasificador.denominacionCOG"
+                                                  value="{{View.Clasificador.denominacionCOG}}"
+                                                  id="{{View.Clasificador.idCOG}}"
+                                                  placeholder=""
+                                                  ng-disabled="true">
+                                            </textarea>
+                                    </md-input-container>
+                                </div>
+                            </div>
+
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+
+                                    <md-input-container flex="25" class="md-block">
+                                        <label style="margin: 0px !important;margin-left: 7px!important;">Unidad de Medida<span style="color:red">*</span></label>
+                                        <md-select ng-disabled=""
+                                                   style="margin: 0px !important;margin-left: 7px!important;"
+                                                   ng-model="View.NewArticulo.idUnidadMedida">
+                                            <md-option ng-repeat="item in View.UnidadMedidas" value="{{item.idUnidadMedida}}">{{item.nombreUnidadMedida}}</md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container style="width:50%!important">
+                                        <label>Conversion</label>
+                                        <input type="number" min="1" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="View.NewArticulo.cantConversionArticulo">
+                                    </md-input-container>
+
+                                    <md-input-container style="width:50%!important">
+                                        <label>Cantidad Minima</label>
+                                        <input type="number" min="1" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="View.NewArticulo.cantMinimaArticulo">
+                                    </md-input-container>
+
+                                    <md-input-container style="width:50%!important">
+                                        <label>Cantidad Maxima</label>
+                                        <input type="number" min="1" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="View.NewArticulo.cantMaximaArticulo">
+                                    </md-input-container>
+
+                                </div>
+                            </div>
+
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+
+                                    <md-input-container style="width:25%!important">
+                                        <label>Ultimo Costo</label>
+                                        <input type="number" min="1" class="form-control ng-pristine ng-valid ng-empty ng-touched CurrencyInput" ng-model="View.NewArticulo.ultimoCostoArticulo">
+                                    </md-input-container>
+
+                                    <div class="form-group col-md-6">
+                                        <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                            <input ng-model="View.NewArticulo.perecederoArticulo" type="checkbox" id="inputCall2" name="inputCheckboxesCall" class="peer">
+                                            <label for="inputCall2" class="peers peer-greed js-sb ai-c">
+                                                <span class="peer peer-greed">Perecedero</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+                                    <div class="col-md-12">
+                                        <md-input-container class="md-block">
+                                            <label>Descripcion</label>
+                                            <textarea ng-model="View.NewArticulo.descripcionArticulo" rows="2" md-select-on-focus></textarea>
+                                        </md-input-container>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+                                    <div class="col-md-12">
+                                        <md-card-title layout="row" layout-align="space-between start">
+                                            <div>
+                                                <md-button class="md-raised md-primary"
+                                                           ng-href="/#!/Auxiliares/IndexArticulo"><span class="ti-arrow-left"></span> Retroceder</md-button>
+                                            </div>
+                                            <div>
+                                                <div layout="row"
+                                                     layout-align="end start">
+                                                    <md-button class="md-raised md-primary"
+                                                               ng-disabled="(View.NewArticulo.idCBS==null ||
+                                                               View.NewArticulo.idUnidadMedida==null||
+                                                               View.NewArticulo.cantConversionArticulo==null||
+                                                               View.NewArticulo.cantMinimaArticulo==null||
+                                                               View.NewArticulo.cantMaximaArticulo==null ||
+                                                               View.NewArticulo.idEstadoArticulo==null||
+                                                               View.NewArticulo.ultimoCostoArticulo==null ||
+                                                               View.NewArticulo.descripcionArticulo==null ||
+                                                               View.NewArticulo.codigoArticulo==null ||
+                                                               View.isCreatingAnUbicacion)"
+                                                               ng-click="View.CreateArticulo(View.NewArticulo)"
+                                                               ng-hide="View.NewArticulo.idArticulo">Añadir</md-button>
+                                                    <md-button class="md-raised md-primary"
+                                                               ng-disabled="(View.NewArticulo.idCBS==null || View.NewArticulo.idUnidadMedida==null||View.NewArticulo.cantConversionArticulo==null||View.NewArticulo.cantMinimaArticulo==null||View.NewArticulo.cantMaximaArticulo==null
+                                                               || View.NewArticulo.idEstadoArticulo==null||View.NewArticulo.ultimoCostoArticulo==null ||View.NewArticulo.descripcionArticulo==null ||View.NewArticulo.codigoArticulo==null)"
+                                                               ng-click="View.UpdateArticulo(View.NewArticulo)"
+                                                               ng-hide="!View.NewArticulo.idArticulo">Guardar</md-button>
+                                                </div>
+                                            </div>
+                                        </md-card-title>
+                                    </div>
+                                </div>
+                            </div>
+                        </md-card-title>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<md-button class="" ng-click="showAdvanced($event)"
+               ng-hide="View.NewArticulo.idArticulo">
+        <span class="ti-search"></span>
+    </md-button>-->
+                                    <!--<md-button class="md-primary md-raised" ng-click="showAdvanced($event)" ng-hide="View.NewArticulo.idArticulo">
+        <span class="ti-search"></span>
+    </md-button>-->
+
+</div>

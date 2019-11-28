@@ -1,0 +1,45 @@
+﻿<!-- AUTHOR: Brawny Javier Mateo Reyes -->
+<div class="row" ng-controller="AppsListController">
+    <div class="masonry-item col-md-12">
+        <div class="bgc-white p-20 bd">
+            <h5>Listado de Aplicaciones Activas</h5>
+            <div class="progress" ng-if="state == States.Loading">
+                <div class="indeterminate" style="background-color: #0076CD;"></div>
+            </div>
+            <hr />
+            <form ng-class="state == States.Loading?'formLoading':''">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="inputEmail4">Filtrar</label>
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="Nombre">
+                    </div>
+                </div>
+                <hr />
+                <table class="table animated fadeIn" ng-if="!(state == States.Loading)">
+                    <thead style="background-color: #0076cd;border-color: #085c9a; color:white">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Usuarios</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="app in Apps">
+                            <th scope="row">{{app.applicationID}}</th>
+                            <td>{{app.applicationName}}</td>
+                            <td>{{app.applicationStatus}}</td>
+                            <td>{{app.description}}</td>
+                            <td>{{app.usersCount}}</td>
+                            <td>
+                                <a href="/#!/Aplicaciones/{{app.applicationID}}" class="btn cur-p btn-outline-primary" style="float:right">Detalles</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>

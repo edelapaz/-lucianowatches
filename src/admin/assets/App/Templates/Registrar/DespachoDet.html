@@ -1,0 +1,369 @@
+﻿<!-- AUTHOR: Yorki E. Encarnacion Moquete -->
+<style>
+    .selectdemoSelectHeader {
+        /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */
+    }
+
+        .selectdemoSelectHeader .demo-header-searchbox {
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+        }
+
+        .selectdemoSelectHeader .demo-select-header {
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+            padding-left: 10.667px;
+            height: 48px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: auto;
+        }
+
+        .selectdemoSelectHeader md-content._md {
+            max-height: 240px;
+        }
+
+    md-autocomplete.custom-template {
+    }
+
+    .autocomplete-custom-template li {
+        border-bottom: 1px solid #ccc;
+        height: auto;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        white-space: normal;
+    }
+
+        .autocomplete-custom-template li:last-child {
+            border-bottom-width: 0;
+        }
+
+    .autocomplete-custom-template .item-title,
+    .autocomplete-custom-template .item-metadata {
+        display: block;
+        line-height: 2;
+    }
+
+        .autocomplete-custom-template .item-title md-icon {
+            height: 18px;
+            width: 18px;
+        }
+
+    .custom-container {
+        min-width: 300px !important;
+    }
+
+    [disabled] md-input-container .md-input, md-input-container .md-input[disabled] {
+        background-position: bottom -1px left 0;
+        background-size: 4px 1px;
+        background-repeat: repeat-x;
+        color: black !important
+    }
+
+    .md-select-value > span:not(.md-select-icon) .md-text {
+        display: inline;
+        color: black !important
+    }
+
+    .ribbon {
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+        width: 75px;
+        height: 75px;
+        text-align: right;
+        font-family: 'Hind Madurai', sans-serif;
+    }
+
+        .ribbon span {
+            font-size: 10px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 20px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            width: 100px;
+            display: block;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+            background: #7fc1fc;
+            background: linear-gradient(rgb(0, 188, 255) 0%, rgb(37, 151, 238) 100%);
+            position: absolute;
+            top: 19px;
+            letter-spacing: 1px;
+            left: -21px;
+        }
+</style>
+<div class="row" ng-controller="RequerimientoController as View">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" style="background-color:rgb(0, 118, 205)!important">
+        <div class="md-toolbar-tools">
+            <h5 ng-if="!View.NewRequerimiento.idRequerimiento">Creaci&oacute;n de Requerimiento</h5>
+            <h5 ng-if="View.NewRequerimiento.idRequerimiento">Registro No. {{View.NewRequerimiento.idRequerimiento}}</h5>
+        </div>
+    </md-toolbar>
+
+    <input type="hidden" name="IdRequerimiento" id="IdRequerimiento"/>
+
+    <div class="bgc-white p-20 bd col-md-12" style="padding-bottom:15px!important">
+
+        <div>
+            <div layout="column">
+                <div flex>
+                </div>
+                <div layout-gt-xs="row" layout-padding style="background-color: #ffffff!important">
+                    <div ng-if="View.showNewLabel" class=ribbon><span>NUEVO</span></div>
+                    <md-card style="width: 100%!important;">
+                        <md-card-title layout="column" flex>
+                            <md-card-title-text>
+                                <span class="md-title">
+                                    <span class="ti-plus"></span> Añadir Requerimiento
+                                </span>
+                            </md-card-title-text>
+                            <!--<pre>{{View.NewRequerimiento|json}}</pre>-->
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+
+                                    <md-input-container style="width:50%!important">
+                                        <label>Fecha Creacion</label>
+                                        <input type="date" class="form-control ng-pristine ng-valid ng-empty ng-touched" ng-model="View.NewRequerimiento.fechaRequerimiento" disabled>
+                                    </md-input-container>
+
+                                    <md-input-container style="width:50%!important">
+                                        <label>Almacen</label>
+                                        <md-select ng-model="View.NewRequerimiento.idAlmacen"
+                                                   class="md-block"
+                                                   data-md-container-class="selectdemoSelectHeader"
+                                                   ng-change=""
+                                                   disabled>
+                                            <md-select-header class="demo-select-header">
+                                                <input ng-model="View.searchAlmacen"
+                                                       type="search"
+                                                       ng-keydown="$event.stopPropagation()"
+                                                       ng-change="View.GetLmacenSearch(View.searchAlmacen)"
+                                                       ng-model-options="{debounce:500}"
+                                                       placeholder="Buscar segmento.."
+                                                       class="demo-header-searchbox md-text">
+                                            </md-select-header>
+                                            <md-optgroup label="Segmento">
+                                                <md-option ng-value="{{item.idAlmacen}}"
+                                                           ng-repeat="item in View.Almacen" value="{{item.idAlmacen}}">
+                                                    {{item.nombreAlmacen}}
+                                                </md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container style="width:50%!important">
+                                        <label>Destino</label>
+                                        <md-select ng-model="View.NewRequerimiento.destinoRequerimiento"
+                                                   ng-change=""
+                                                   style="margin-top:0!important"
+                                                   disabled>
+                                            <md-option ng-value="1">
+                                                Almacen
+                                            </md-option>
+                                            <md-option ng-value="2">
+                                                Compras
+                                            </md-option>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container style="width:50%!important">
+                                        <label>Departamento</label>
+                                        <md-select ng-model="View.NewRequerimiento.idDepartamento"
+                                                   style="margin-top:0!important"
+                                                   disabled>
+                                            <md-option ng-repeat="item in View.Departamento" value="{{item.departmentID}}">{{item.departmentName}}</md-option>
+                                    </md-input-container>
+                                </div>
+                            </div>
+
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+                                    <div class="col-md-12">
+                                        <md-input-container class="md-block">
+                                            <label>Observacion</label>
+                                            <textarea ng-model="View.NewRequerimiento.observacionRequerimiento" rows="2" md-select-on-focus>{{View.NewRequerimiento.observacionRequerimiento}}</textarea>
+                                        </md-input-container>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div layout="row" layout-align="space-between start">
+                                <div>
+                                    <md-button class="md-raised md-primary"
+                                               ng-href="/#!/Registrar/IndexDespacho" style="background-color:rgb(0, 118, 205)!important"><span class="ti-arrow-left"></span> Retroceder</md-button>
+                                    <md-button class="md-raised md-primary" style="background-color:rgb(0, 118, 205)!important"
+                                               ng-hide="!View.NewRequerimiento.idRequerimiento"
+                                               ng-if="View.NewRequerimiento.idEstadoRequerimiento==2"
+                                               ng-disabled="View.NewRequerimiento.fechaRequerimiento==null || View.NewRequerimiento.idAlmacen==null || View.NewRequerimiento.destinoRequerimiento==null ||View.NewRequerimiento.idDepartamento==null"
+                                               ng-click="View.VolverRequerimiento(View.NewRequerimiento)">Enviar requerimiento</md-button>
+                                    <md-button class="md-raised md-primary" style="background-color:rgb(0, 118, 205)!important"
+                                               ng-hide="!View.NewRequerimiento.idRequerimiento"
+                                               ng-if="View.NewRequerimiento.idEstadoRequerimiento==5"
+                                               ng-disabled="View.NewRequerimiento.fechaRequerimiento==null || View.NewRequerimiento.idAlmacen==null || View.NewRequerimiento.destinoRequerimiento==null ||View.NewRequerimiento.idDepartamento==null"
+                                               ng-click="View.VolverAprobacion(View.NewRequerimiento)">Enviar a aprobacion</md-button>
+                                </div>
+                                <div>
+                                    <div layout="row"
+                                         layout-align="end start">
+                                        <md-button class="md-raised md-primary"
+                                                   ng-if="View.NewRequerimiento.idEstadoRequerimiento==2"
+                                                   ng-disabled="View.NewRequerimiento.fechaRequerimiento==null || View.NewRequerimiento.idAlmacen==null || View.NewRequerimiento.destinoRequerimiento==null ||View.NewRequerimiento.idDepartamento==null || View.totalReqDet==0"
+                                                   ng-click="View.EnviarAprobacionRequerimiento(View.NewRequerimiento)" style="background-color:rgb(0, 118, 205)!important">Aprobar Cantidades</md-button>
+                                        <md-button class="md-raised md-primary"
+                                                   ng-if="View.NewRequerimiento.idEstadoRequerimiento==5"
+                                                   ng-disabled="View.NewRequerimiento.fechaRequerimiento==null || View.NewRequerimiento.idAlmacen==null || View.NewRequerimiento.destinoRequerimiento==null ||View.NewRequerimiento.idDepartamento==null || View.totalReqDet==0"
+                                                   ng-click="View.Despachar(View.NewRequerimiento)" style="background-color:rgb(0, 118, 205)!important">Despachar</md-button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </md-card-title>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" style="background-color:rgb(0, 118, 205)!important" ng-hide="!View.NewRequerimiento.idRequerimiento">
+        <div class="md-toolbar-tools">
+            <h5 ng-if="!View.newDocument.SequenceCode">Detalle Requerimiento</h5>
+            <h5 ng-if="View.newDocument.SequenceCode">Registro {{View.newDocument.SequenceCode}}</h5>
+        </div>
+    </md-toolbar>
+    <div class="bgc-white p-20 bd col-md-12" style="padding-bottom:15px!important" ng-hide="!View.NewRequerimiento.idRequerimiento">
+
+        <!--<div class="row">
+        <div class="col-md-12">
+            <md-table-container data-step="4"
+                                data-intro="Aquí serán mostrados los registros segun tu criterio de búsqueda (filtros)"
+                                style="width:100%!important;font-weight:500!important">
+                <table md-table multiple ng-model="selected" md-progress="promise">
+                    <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                        <tr md-row>
+                            <th md-column>Articulo</th>
+                            <th md-column>Cantidad Aprobada</th>
+                            <th md-column>Existencia</th>
+                            <th md-column>Observacion</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="requerimientosDetalle in View.RequerimientosDetalleDespacho" id="{{requerimientosDetalle.idArticulo}}">
+                            <td md-cell>{{requerimientosDetalle.codigoArticulo}} - {{requerimientosDetalle.descripcionArticulo}}</td>
+                            <td md-cell ng-click="">{{requerimientosDetalle.cantidadAprobadaReqDet}}</td>
+                            <td md-cell ng-click="">{{requerimientosDetalle.existencia}}</td>
+                            <td md-cell ng-click="">{{requerimientosDetalle.observacionRequerimientoDetalle}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <hr ng-if="!View.RequerimientosDetalle.length"/>
+            <h6 ng-if="!View.RequerimientosDetalle.length" style="font-weight: 600;color: #3f51b5; text-align: center;">No hay Registros</h6>
+            <md-table-pagination ng-if="!View.loadingDocuments"
+                                 md-limit="View.limit"
+                                 data-step="5"
+                                 data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                 md-limit-options="[10,20,30,40]"
+                                 md-page="View.page"
+                                 md-total="{{View.totalReqDetDesp}}"
+                                 md-on-paginate="View.GetRequerimientoDetDespacho"
+                                 md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                 md-page-select></md-table-pagination>
+        </div>
+    </div>-->
+
+        <div class="row"
+             ng-if="View.NewRequerimiento.idEstadoRequerimiento==2">
+            <div class="col-md-12">
+                <md-table-container data-step="4"
+                                    data-intro="Aquí serán mostrados los registros segun tu criterio de búsqueda (filtros)"
+                                    style="width:100%!important;font-weight:500!important">
+                    <table md-table multiple ng-model="selected" md-progress="promise">
+                        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                            <tr md-row>
+                                <th md-column>Articulo</th>
+                                <th md-column>Cantidad Solicitada</th>
+                                <th md-column>Cantidad Aprobada</th>
+                                <th md-column>Existencia</th>
+                                <th md-column>Observacion</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="requerimientosDetalle in View.RequerimientosDetalleDespacho" id="{{requerimientosDetalle.idArticulo}}">
+                                <td md-cell>{{requerimientosDetalle.codigoArticulo}} - {{requerimientosDetalle.descripcionArticulo}}</td>
+                                <td md-cell ng-click="">{{requerimientosDetalle.cantidadSolicitadaReqDet}}</td>
+                                <td md-cell ng-click="View.EditRequerimientoDet(requerimientosDetalle,'cantidadAprobadaReqDet', ' Cantidad Aprobada')">{{requerimientosDetalle.cantidadAprobadaReqDet}}</td>
+                                <td md-cell ng-click="">{{requerimientosDetalle.existencia}}</td>
+                                <td md-cell ng-click="">{{requerimientosDetalle.observacionRequerimientoDetalle}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <hr ng-if="!View.RequerimientosDetalle.length" />
+                <h6 ng-if="!View.RequerimientosDetalle.length" style="font-weight: 600;color: #3f51b5; text-align: center;">No hay Registros</h6>
+                <md-table-pagination ng-if="!View.loadingDocuments"
+                                     md-limit="View.limit"
+                                     data-step="5"
+                                     data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                     md-limit-options="[10,20,30,40]"
+                                     md-page="View.page"
+                                     md-total="{{View.totalReqDetDesp}}"
+                                     md-on-paginate="View.GetRequerimientoDetDespacho"
+                                     md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                     md-page-select></md-table-pagination>
+            </div>
+        </div>
+
+        <div class="row"
+             ng-if="View.NewRequerimiento.idEstadoRequerimiento==5">
+            <div class="col-md-12">
+                <md-table-container data-step="4"
+                                    data-intro="Aquí serán mostrados los registros segun tu criterio de búsqueda (filtros)"
+                                    style="width:100%!important;font-weight:500!important">
+                    <table md-table multiple ng-model="selected" md-progress="promise">
+                        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                            <tr md-row>
+                                <th md-column>Articulo</th>
+                                <th md-column>Cantidad Aprobada</th>
+                                <th md-column>Existencia</th>
+                                <th md-column>Observacion</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="requerimientosDetalle in View.RequerimientosDetalleDespacho" id="{{requerimientosDetalle.idArticulo}}">
+                                <td md-cell>{{requerimientosDetalle.codigoArticulo}} - {{requerimientosDetalle.descripcionArticulo}}</td>
+                                <td md-cell ng-click="">{{requerimientosDetalle.cantidadAprobadaReqDet}}</td>
+                                <td md-cell ng-click="">{{requerimientosDetalle.existencia}}</td>
+                                <td md-cell ng-click="">{{requerimientosDetalle.observacionRequerimientoDetalle}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <hr ng-if="!View.RequerimientosDetalle.length" />
+                <h6 ng-if="!View.RequerimientosDetalle.length" style="font-weight: 600;color: #3f51b5; text-align: center;">No hay Registros</h6>
+                <md-table-pagination ng-if="!View.loadingDocuments"
+                                     md-limit="View.limit"
+                                     data-step="5"
+                                     data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                     md-limit-options="[10,20,30,40]"
+                                     md-page="View.page"
+                                     md-total="{{View.totalReqDetDesp}}"
+                                     md-on-paginate="View.GetRequerimientoDetDespacho"
+                                     md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                     md-page-select></md-table-pagination>
+            </div>
+        </div>
+    </div>
+ </div>

@@ -1,0 +1,179 @@
+﻿<!-- AUTHOR: Yorki E. Encarnacion Moquete -->
+<style>
+    .selectdemoSelectHeader {
+        /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */
+    }
+
+        .selectdemoSelectHeader .demo-header-searchbox {
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+        }
+
+        .selectdemoSelectHeader .demo-select-header {
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+            padding-left: 10.667px;
+            height: 48px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: auto;
+        }
+
+        .selectdemoSelectHeader md-content._md {
+            max-height: 240px;
+        }
+</style>
+<div ng-controller="UbicacionController as View" class="row">
+    <div class="masonry-item col-md-12" style="margin-bottom:15px!important">
+        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions"
+                    layout="row"
+                    layout-align="space-between center">
+            <div class="md-toolbar-tools">
+                <h5>Ubicacion del articulo</h5>
+            </div>
+            <div title="Ayuda"
+                 onclick="javascript: introJs().setOption('nextLabel', 'Siguiente').setOption('prevLabel', 'Anterior').setOption('doneLabel', 'Listo').setOption('exitOnEsc', true).setOption('showStepNumbers', true).setOption('showProgress', true).setOption('skipLabel', 'Omitir').start();"
+                 style="padding:16px; cursor:pointer">
+                <i class="ti-help-alt"> </i>
+            </div>
+        </md-toolbar>
+        <div class="bgc-white p-20 bd">
+            <div class="mT-30">
+                <form>
+                    <div class="row"
+                         data-step="1"
+                         data-intro="Introduce aquí los datos del ubicacion del articulo que deseas crear.">
+
+
+                        <md-input-container flex="50">
+                            <label>Articulo</label>
+                            <md-select ng-model="View.NewUbicacionArt.idArticulo"
+                                       style="margin-top:0!important"
+                                       class="md-block"
+                                       data-md-container-class="selectdemoSelectHeader">
+                                <md-select-header class="demo-select-header">
+                                    <input ng-model="View.searchArticulo"
+                                           type="search"
+                                           ng-keydown="$event.stopPropagation()"
+                                           ng-change="View.GetArticuloSearch(View.searchArticulo)"
+                                           ng-model-options="{debounce:500}"
+                                           placeholder="Buscar articulo.."
+                                           class="demo-header-searchbox md-text">
+                                </md-select-header>
+                                <md-optgroup label="Articulo">
+                                    <md-option ng-value="{{item.idArticulo}}"
+                                               ng-repeat="item in View.Articulo" value="{{item.idArticulo}}">
+                                        {{item.descripcionArticulo}}
+                                    </md-option>
+                                </md-optgroup>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container style="width:25%!important">
+                            <label>Almacen</label>
+                            <md-select ng-model="View.NewUbicacionArt.idAlmacen"
+                                       class="md-block"
+                                       data-md-container-class="selectdemoSelectHeader"
+                                       ng-change="View.GetUbicacionAlmacen(View.NewUbicacionArt.idAlmacen)">
+                                <md-optgroup label="Almacen">
+                                    <md-option ng-value="{{item.idAlmacen}}"
+                                               ng-repeat="item in View.Almacen" value="{{item.idAlmacen}}">
+                                        {{item.nombreAlmacen}}
+                                    </md-option>
+                                </md-optgroup>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container style="width:25%!important">
+                            <label>Ubicacion</label>
+                            <md-select ng-model="View.NewUbicacionArt.idUbicacion"
+                                       class="md-block"
+                                       data-md-container-class="selectdemoSelectHeader"
+                                       ng-change="">
+                                <md-optgroup label="Ubicacion">
+                                    <md-option ng-value="{{item.idUbicacion}}"
+                                               ng-repeat="item in View.UbicacionAlmacen" value="{{item.idUbicacion}}">
+                                        {{item.pasillo}} - {{item.tramo}} - {{item.bandeja}}
+                                    </md-option>
+                                </md-optgroup>
+                            </md-select>
+                        </md-input-container>
+
+                        <div class="col-md-12">
+                            <div layout="row" layout-align="end start">
+                                <md-button class="md-raised md-primary"
+                                           data-step="2"
+                                           ng-hide="View.NewUbicacionArt.idUbicacionArticulo"
+                                           data-intro="Luego presiona este botón para enviar la solicitud de creación."
+                                           ng-disabled="(View.NewUbicacionArt.idArticulo==null ||View.NewUbicacionArt.idAlmacen==null||View.NewUbicacionArt.idUbicacion==null||View.isCreatingAnAlmacen)"
+                                           ng-click="View.CreateUbicacionArticulo(View.NewUbicacionArt)">Añadir</md-button>
+                                <md-button class="md-raised md-primary"
+                                           ng-hide="!View.NewUbicacionArt.idUbicacionArticulo"
+                                           ng-disabled="(View.NewUbicacionArt.idArticulo==null ||View.NewUbicacionArt.idAlmacen==null||View.NewUbicacionArt.idUbicacion==null)"
+                                           ng-click="View.UpdateUbicacionArticulo(View.NewUbicacionArt)">Guardar</md-button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="masonry-item col-md-12">
+        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions">
+            <div class="md-toolbar-tools"> <h5>Ubicaciones del articulo</h5></div>
+        </md-toolbar>
+        <div class="bgc-white p-20 bd">
+            <div class="row" layout="row" layout-align="end start">
+                <form ng-submit="View.GetUbicacionesArticulos()"
+                      class="col-md-12">
+                    <div>
+
+                    </div>
+                </form>
+            </div>
+            <md-table-container data-step="3"
+                                data-intro="Acá aparecerán las ubicaciones del articulo.">
+                <table md-table>
+                    <thead md-head>
+                        <tr md-row>
+                            <th md-column>Articulo</th>
+                            <th md-column>Almacen</th>
+                            <th md-column>Pasillo</th>
+                            <th md-column>Tramo</th>
+                            <th md-column>Bandeja</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row ng-repeat="Ubicacion in View.UbicacionesArticulos">
+                            <td md-cell>{{Ubicacion.descripcionArticulo}}</td>
+                            <td md-cell>{{Ubicacion.nombreAlmacen}}</td>
+                            <td md-cell>{{Ubicacion.pasillo}}</td>
+                            <td md-cell>{{Ubicacion.tramo}}</td>
+                            <td md-cell>{{Ubicacion.bandeja}}</td>
+                            <td layout="col" layout-align="end center" style="padding:0!important" md-cell>
+                                <md-button md-no-ink class="md-primary"
+                                           ng-click="View.EditUbicacionArticulo(Ubicacion)"
+                                           style="color:blue">
+                                    Editar
+                                </md-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="View.limit"
+                                 md-limit-options="[10,20,30,40]"
+                                 md-page="View.page"
+                                 md-total="{{View.totalUbArt}}"
+                                 md-on-paginate="View.GetUbicacionesArticulos"
+                                 data-step="4"
+                                 data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                 md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                 md-page-select></md-table-pagination>
+        </div>
+    </div>
+</div>

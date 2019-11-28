@@ -1,0 +1,147 @@
+﻿<!-- AUTHOR: Yorki E. Encarnacion Moquete -->
+<div ng-controller="EncargadoController as vm" class="row">
+    <div class="masonry-item col-md-12" style="margin-bottom:15px!important">
+        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions"
+                    layout="row"
+                    layout-align="space-between center">
+            <div class="md-toolbar-tools">
+                <h5>Encargado</h5>
+            </div>
+            <div title="Ayuda"
+                 onclick="javascript: introJs().setOption('nextLabel', 'Siguiente').setOption('prevLabel', 'Anterior').setOption('doneLabel', 'Listo').setOption('exitOnEsc', true).setOption('showStepNumbers', true).setOption('showProgress', true).setOption('skipLabel', 'Omitir').start();"
+                 style="padding:16px; cursor:pointer">
+                <i class="ti-help-alt"> </i>
+            </div>
+        </md-toolbar>
+        <div class="bgc-white p-20 bd">
+            <div class="mT-30">
+                <form>
+                    <div class="form-row"
+                         layout="column" flex
+                         style="padding-left: 15px;padding-right: 15px;">
+                        <div class="row"
+                             data-step="1"
+                             data-intro="Introduce aquí los datos del Encargado que deseas crear.">
+                            <div flex layout="row">
+                                <md-input-container style="margin-bottom:0!important" class="md-block" flex-gt-sm>
+                                    <label>Cedula del Encargado</label>
+                                    <input ng-model="vm.NewEncargado.cedulaEncargado" ng-maxlength="11">
+                                </md-input-container>
+                                <md-input-container style="margin-bottom:0!important" class="md-block" flex-gt-sm>
+                                    <label>Nombre del Encargado</label>
+                                    <input ng-model="vm.NewEncargado.nombreEncargado">
+                                </md-input-container>
+                                <md-input-container style="margin-bottom:0!important" class="md-block" flex-gt-sm>
+                                    <label>Apellido del Encargado</label>
+                                    <input ng-model="vm.NewEncargado.apellidoEncargado">
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row"
+                         layout="column" flex
+                         style="padding-left: 15px;padding-right: 15px;">
+                        <div class="row"
+                             data-step="1"
+                             data-intro="Introduce aquí los datos del Encargado que deseas crear.">
+                            <div flex layout="row">
+                                <md-input-container style="margin-bottom:0!important" class="md-block" flex-gt-sm>
+                                    <label>Posicion del Encargado</label>
+                                    <input ng-model="vm.NewEncargado.posicionEncargado">
+                                </md-input-container>
+                                <md-input-container style="width:50%!important">
+                                    <label>Departamento</label>
+                                    <md-select ng-model="vm.NewEncargado.idDepartamento"
+                                               class="md-block"
+                                               data-md-container-class="selectdemoSelectHeader"
+                                               ng-change="">
+                                        <md-select-header class="demo-select-header">
+                                            <md-input-container style="margin-bottom:0!important" class="md-block" flex-gt-sm>
+                                                <input ng-model="vm.searchDepartamento"
+                                                       type="search"
+                                                       ng-keydown="$event.stopPropagation()"
+                                                       ng-change="vm.GetDepartamentoSearch(vm.searchDepartamento)"
+                                                       ng-model-options="{debounce:500}"
+                                                       placeholder="Buscar departamento.."
+                                                       class="demo-header-searchbox md-text" />
+                                            </md-input-container>
+                                        </md-select-header>
+                                        <md-optgroup label="Departamento">
+                                            <md-option ng-value="{{item.departmentID}}"
+                                                       ng-repeat="item in vm.Departamento" value="{{item.departmentID}}">
+                                                {{item.departmentName}}
+                                            </md-option>
+                                        </md-optgroup>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div class="col-md-12">
+                                <div layout="row" layout-align="end start">
+                                    <md-button class="md-raised md-primary"
+                                               ng-hide="vm.NewEncargado.idEncargado"
+                                               data-step="2"
+                                               data-intro="Luego presiona este botón para enviar la solicitud de creación."
+                                               ng-disabled="(vm.NewEncargado.cedulaEncargado==null ||vm.NewEncargado.nombreEncargado==null||vm.NewEncargado.apellidoEncargado==null||vm.NewEncargado.posicionEncargado==null||vm.NewEncargado.idDepartamento==null||vm.isCreatingAnEncargado)"
+                                               ng-click="vm.CreateEncargado(vm.NewEncargado)">Añadir</md-button>
+                                    <md-button class="md-raised md-primary"
+                                               ng-hide="!vm.NewEncargado.idEncargado"
+                                               ng-disabled="(vm.NewEncargado.cedulaEncargado==null ||vm.NewEncargado.nombreEncargado==null||vm.NewEncargado.apellidoEncargado==null||vm.NewEncargado.posicionEncargado==null||vm.NewEncargado.idDepartamento==null||vm.isCreatingAnEncargado)"
+                                               ng-click="vm.UpdateEncargado(vm.NewEncargado)">Guardar</md-button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="masonry-item col-md-12">
+        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions">
+            <div class="md-toolbar-tools"> <h5>Encargados</h5></div>
+        </md-toolbar>
+        <div class="bgc-white p-20 bd">
+            <md-table-container data-step="3" data-intro="Acá aparecerán los encargados.">
+                <table md-table>
+                    <thead md-head>
+                        <tr md-row>
+                            <th md-column>Cedula Encargado</th>
+                            <th md-column>Nombre Encargado</th>
+                            <th md-column>Apellido Encargado</th>
+                            <th md-column>Posicion Encargado</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row ng-repeat="encargado in vm.Encargado">
+                            <td md-cell ng-click="">{{encargado.cedulaEncargado}}</td>
+                            <td md-cell ng-click="">{{encargado.nombreEncargado}}</td>
+                            <td md-cell ng-click="">{{encargado.apellidoEncargado}}</td>
+                            <td md-cell ng-click="">{{encargado.posicionEncargado}}</td>
+                            <td layout="col" layout-align="end center" style="padding:0!important" md-cell>
+                                <md-button md-no-ink class="md-primary"
+                                           ng-click="vm.EditEncargado(encargado)"
+                                           style="color:blue">
+                                    Editar
+                                </md-button>
+                                <md-button md-no-ink class="md-primary"
+                                           ng-click="vm.Delete(encargado, $event)"
+                                           style="color:red">
+                                    Eliminar
+                                </md-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vm.limit"
+                                 md-limit-options="[10,20,30,40]"
+                                 md-page="vm.page"
+                                 md-total="{{vm.total}}"
+                                 md-on-paginate="vm.GetAlmacenes"
+                                 data-step="4"
+                                 data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                 md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                 md-page-select></md-table-pagination>
+        </div>
+    </div>
+</div>

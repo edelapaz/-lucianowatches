@@ -1,0 +1,174 @@
+﻿<!-- AUTHOR: Brawny Javier Mateo Reyes -->
+<style>
+    .selectdemoSelectHeader {
+        /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */
+    }
+
+        .selectdemoSelectHeader .demo-header-searchbox {
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+        }
+
+        .selectdemoSelectHeader .demo-select-header {
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+            padding-left: 10.667px;
+            height: 48px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: auto;
+        }
+
+        .selectdemoSelectHeader md-content._md {
+            max-height: 240px;
+        }
+</style>
+
+<div ng-controller="IndexPrincipalController as View" layout="column">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions"
+                layout="row"
+                layout-align="space-between center">
+        <div class="md-toolbar-tools">
+            <h5>Inicio</h5>
+        </div>
+        <div title="Ayuda"
+             ng-click="View.ShowAdvancedFilters = true"
+             onclick="javascript: introJs().setOption('nextLabel', 'Siguiente').setOption('prevLabel', 'Anterior').setOption('doneLabel', 'Listo').setOption('exitOnEsc', true).setOption('showStepNumbers', true).setOption('showProgress', true).setOption('skipLabel', 'Omitir').start();"
+             style="padding:16px; cursor:pointer">
+            <i class="ti-help-alt"> </i>
+        </div>
+    </md-toolbar>
+    <div class="bgc-white p-20 bd col-md-12">
+        <md-card flex>
+            <md-card-title layout="row">
+                <img ng-src="{{View.SCGU_URI+'/api/JCE/GetImage/'+View.userID}}"
+                     style="width: 100px;height: 125px;margin-right:10px" />
+                <div flex layout="column">
+                    <h3> {{View.user.FullName}}</h3>
+                    <md-divider></md-divider>
+                    <h5>{{View.user.DepartmentName}}</h5>
+
+                </div>
+            </md-card-title>
+        </md-card>
+
+        <div id="#Requerimiento" style="display:none;">
+            <div class="row py-2">
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut1"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut2"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut3"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut4"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut5"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut6"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="#Aprobacion" style="display:none;">
+            <div class="row py-2">
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut7"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut8"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut9"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row py-2">
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut10"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut11"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 py-1">
+                    <div class="card">
+                        <div class="card-body">
+                            <canvas id="chDonut12"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="masonry-item col-md-6">
+                <div class="bgc-white p-20 bd"><h6 class="c-grey-900">Easy Pie Charts</h6><div class="mT-30"><div class="peers mT-20 fxw-nw@lg+ jc-sb ta-c gap-10"><div class="peer"><div class="easy-pie-chart" data-size="80" data-percent="75" data-bar-color="#f44336"><span></span></div><h6 class="fsz-sm">New Users</h6></div><div class="peer"><div class="easy-pie-chart" data-size="80" data-percent="50" data-bar-color="#2196f3"><span></span></div><h6 class="fsz-sm">New Purchases</h6></div><div class="peer"><div class="easy-pie-chart" data-size="80" data-percent="65" data-bar-color="#f44336"><span></span></div><h6 class="fsz-sm">New Customers</h6></div><div class="peer"><div class="easy-pie-chart" data-size="80" data-percent="90" data-bar-color="#ff9800"><span></span></div><h6 class="fsz-sm">Bounce Rate</h6></div></div></div></div>
+            </div>-->
+        </div>
+
+    </div>
+</div>

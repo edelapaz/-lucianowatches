@@ -1,0 +1,338 @@
+﻿<!-- AUTHOR: Brawny Javier Mateo Reyes -->
+<div class="row" ng-controller="ExternalRegistController as View">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions">
+        <div class="md-toolbar-tools">
+            <h5 ng-if="!View.newDocument.SequenceCode">Creaci&oacute;n de Registros Recibidos/ Externos</h5>
+            <h5 ng-if="View.newDocument.SequenceCode">Registro {{View.newDocument.SequenceCode}}</h5>
+        </div>
+    </md-toolbar>
+    <div class="bgc-white p-20 bd col-md-12" style="padding-bottom:15px!important">
+        <md-progress-linear md-mode="indeterminate"
+                            ng-if="View.state == View.States.Loading"
+                            style="margin-bottom:20px!important"></md-progress-linear>
+        <form ng-class="View.state == View.States.Loading?'formLoading':''">
+            <label>Tipo de Documento <span style="color:red">*</span></label>
+            <md-select ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted"
+                       id="doctype"
+                       style="margin-top:0!important;min-width: 200px;"
+                       placeholder="Tipo de Documento"
+                       ng-model="View.newDocument.DocumentType"
+                       md-on-open="View.LoadDocumentTypes()">
+                <md-progress-circular ng-if="View.state == View.states.LoadingDocTypes"
+                                      class="md-hue-2"
+                                      md-diameter="40">
+                </md-progress-circular>
+                <md-option ng-value="dc.documentTypeID"
+                           ng-repeat="dc in View.DocumentTypes"
+                           ng-if="!(View.state == View.States.LoadingDocTypes)">
+                    {{dc.documentTypeName}} ({{dc.sequencePrefix}})
+                </md-option>
+            </md-select>
+        </form>
+        <div ng-if="View.newDocument.DocumentType" ng-class="View.state == View.States.Loading?'formLoading':''">
+            <div class="col-md-12" ng-show="View.newDocument.DocumentType !=3">
+                <h5>Datos del Destinatario</h5>
+                <div>
+                    <h6 ng-if="View.newDocument.addressees.length !== 0">Destinatarios <a style="float:right!important" ng-click="View.showAdresseesAddform = true" href="javascript:void(0);">Añadir Otro</a></h6>
+                    <div layout="column" ng-if="View.newDocument.addressees.length !== 0">
+                        <div layout-gt-sm="row" layout-padding>
+                            <md-card ng-repeat="adrsee in View.newDocument.addressees">
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline" style="font-weight:bold">{{adrsee.names | capitalize}} {{adrsee.lastNames | capitalize}}</span>
+                                        <span class="md-title">
+                                            {{adrsee.area.departmentName | capitalize}}
+                                            {{adrsee.institution.institutionName | capitalize}}
+                                        </span>
+
+                                        <span class="md-subhead" ng-if="adrsee.type == 2">
+                                            ( Destinatario )
+                                        </span>
+                                        <span class="md-subhead" ng-if="adrsee.type ==3">
+                                            ( Copia )
+                                        </span>
+                                        <span class="md-subhead" ng-if="adrsee.type ==4">
+                                            ( Via )
+                                        </span>
+                                        <span class="md-subhead" ng-if="adrsee.type ==5">
+                                            ( Atencion )
+                                        </span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <md-card-actions layout="row" layout-align="end center">
+                                    <md-button ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted" style="color:orangered" ng-click="View.DeleteAddressee(adrsee)">Eliminar</md-button>
+                                </md-card-actions>
+                            </md-card>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="View.newDocument.DocumentType !=3  && (View.showAdresseesAddform || View.newDocument.addressees.length==0)">
+                <div layout="column">
+                    <div layout-gt-xs="row" layout-padding style="background-color: #ffffff!important">
+                        <md-card style="width: 100%!important;">
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-title">
+                                        <span class="ti-plus"></span> Añadir Destinatario
+                                    </span>
+                                </md-card-title-text>
+                            </md-card-title>
+                            <div class="form-row" style="padding-left: 15px;padding-right: 15px;">
+                                <div class="col-md-4 form-group NoBottomMargin">
+                                    <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px!important;">
+                                        <label>Nombres</label>
+                                        <input ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted" ng-model="View.NewAddressee.names">
+                                    </md-input-container>
+                                    <style>
+                                        .NoBottomMargin {
+                                            margin-bottom: 0px !important;
+                                        }
+                                    </style>
+                                </div>
+                                <div class="col-md-4 form-group NoBottomMargin">
+                                    <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px!important;">
+                                        <label>Apellidos</label>
+                                        <input ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted" ng-model="View.NewAddressee.lastNames">
+                                    </md-input-container>
+                                </div>
+                                <div class="col-md-2 form-group  NoBottomMargin">
+                                    <label style="margin: 0px !important;margin-left: 7px!important;">Tipo <span style="color:red">*</span> </label>
+                                    <md-select ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted" style="margin: 0px !important;margin-left: 7px!important;" ng-model="View.NewAddressee.type">
+                                        <md-option ng-value="2">
+                                            Destinatario
+                                        </md-option>
+                                        <md-option ng-value="3">
+                                            Copia
+                                        </md-option>
+                                        <md-option ng-value="4">
+                                            Via
+                                        </md-option>
+                                        <md-option ng-value="5">
+                                            Atencion
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                                <div class="col-md-2 form-group  NoBottomMargin">
+                                    <label style="margin: 0px !important;margin-left: 7px!important;">Origen<span style="color:red">*</span></label>
+                                    <md-select ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted"
+                                               style="margin: 0px !important;margin-left: 7px!important;"
+                                               ng-model="View.NewAddressee.origin">
+                                        <md-option ng-value="2">
+                                            &Aacute;rea del MICM (Interno)
+                                        </md-option>
+                                        <md-option ng-value="3">
+                                            Instituci&oacute;n (Externo)
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div ng-if="View.NewAddressee.origin == 2"
+                                     class="col-md-12"
+                                     style="margin-top:15px!important;padding-left: 15px;padding-right: 15px;">
+                                    <label>Area MICM</label>
+                                    <md-autocomplete ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted"
+                                                     md-selected-item="View.NewAddressee.area"
+                                                     md-search-text-change="View.Departments.onTextChange(View.Departments.LookUpText)"
+                                                     md-search-text="View.Departments.LookUpText"
+                                                     md-selected-item-change="View.Departments.onItemChange(item)"
+                                                     md-items="item in View.Departments.Departments"
+                                                     md-item-text="item.departmentName"
+                                                     md-min-length="3"
+                                                     placeholder="Área MICM">
+                                        <md-item-template>
+                                            <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.departmentName}}</span>
+                                        </md-item-template>
+                                        <md-not-found>
+                                            <span ng-if="View.Departments.LookUpText!=''"> No hay registros como "{{View.Departments.LookUpText}}" en la base de datos.</span>
+                                            <span ng-if="View.Departments.LookUpText==''">Empieza a escribir el nombre del departamento/direcci&oacute;n</span>
+                                        </md-not-found>
+                                    </md-autocomplete>
+                                </div>
+                                <div ng-if="View.NewAddressee.origin == 3"
+                                     class="col-md-12"
+                                     style="margin-top:15px!important;padding-left: 15px;padding-right: 15px;">
+                                    <label>Instituci&oacute;n</label>
+                                    <md-autocomplete ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted"
+                                                     md-selected-item="View.NewAddressee.institution"
+                                                     md-search-text-change="View.Institutions.onTextChange(View.Institutions.LookUpText)"
+                                                     md-search-text="View.Institutions.LookUpText"
+                                                     md-selected-item-change="View.SENDER_Departments.onItemChange(item)"
+                                                     md-items="item in View.Institutions.InstitutionsStore"
+                                                     md-item-text="item.institutionName"
+                                                     md-min-length="0"
+                                                     placeholder="Institución">
+                                        <md-item-template>
+                                            <span md-highlight-text="View.Institutions.LookUpText" md-highlight-flags="^i">{{item.institutionName}}</span>
+                                        </md-item-template>
+                                        <md-not-found>
+                                            <span ng-if="View.SENDER_Departments.LookUpText!=''"> No hay registros como "{{View.SENDER_Departments.LookUpText}}" en la base de datos.</span>
+                                            <span ng-if="View.SENDER_Departments.LookUpText==''">Empieza a escribir el nombre del departamento/direcci&oacute;n</span>
+                                        </md-not-found>
+                                    </md-autocomplete>
+                                </div>
+                            </div>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <div layout="row" layout-align="end start">
+                                    <md-button class="md-raised md-primary"
+                                               ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted"
+                                               ng-click="View.addAddressee(View.NewAddressee)">Añadir</md-button>
+                                </div>
+                            </md-card-actions>
+                        </md-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <md-toolbar ng-class="View.state == View.States.Loading?'formLoading':''" class="demo-toolbar md-primary _md _md-toolbar-transitions " ng-if="View.newDocument.DocumentType">
+        <div class="md-toolbar-tools"> <h5>Datos del Documento</h5></div>
+    </md-toolbar>
+    <div class="bgc-white p-20 bd col-md-12" ng-class="View.state == View.States.Loading?'formLoading':''" ng-if="View.newDocument.DocumentType">
+        <div class="col-md-12" ng-show="View.newDocument.senders.length && View.newDocument.DocumentType !=3">
+            <h6>Remitentes <a style="float:right!important" ng-click="View.showSendersAddform = true" href="javascript:void(0);">Añadir Otro</a></h6>
+
+            <div layout="column">
+                <div layout-gt-sm="row" layout-padding>
+                    <md-card ng-repeat="sender in View.newDocument.senders">
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline" style="font-weight:bold">{{sender.names | capitalize}} {{sender.lastNames | capitalize}}</span>
+                                <span class="md-title">
+                                    {{sender.area.departmentName | capitalize}}
+                                    {{sender.institution.institutionName | capitalize}}
+                                </span>
+                            </md-card-title-text>
+                        </md-card-title>
+                        <md-card-actions layout="row" layout-align="end center">
+                            <md-button ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted" style="color:orangered" ng-click="View.DeleteSender(sender)">Eliminar</md-button>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+        <div layout="column" ng-show="View.newDocument.DocumentType !=3  && (View.showSendersAddform || !View.newDocument.senders.length)">
+            <div layout-gt-xs="row" layout-padding style="background-color: #ffffff!important">
+                <md-card style="width: 100%!important;">
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-title">
+                                <span class="ti-plus"></span>  Añadir Remitente
+                            </span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <div class="form-row" style="padding-left: 15px;padding-right: 15px;">
+                        <div class="col-md-6 form-group NoBottomMargin">
+                            <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px!important;">
+                                <label>Nombres</label>
+                                <input ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted" ng-model="View.NewSender.names">
+                            </md-input-container>
+                        </div>
+                        <div class="col-md-6 form-group NoBottomMargin">
+                            <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px!important;">
+                                <label>Apellidos</label>
+                                <input ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted" ng-model="View.NewSender.lastNames">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-md-12 form-group" style="margin-top:15px!important;padding-left: 15px;padding-right: 15px;">
+                            <label>Instituci&oacute;n<span style="color:red">*</span></label>
+                            <md-autocomplete ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted"
+                                             md-selected-item="View.NewSender.institution"
+                                             md-search-text-change="View.SENDER_INSTITUTIONS.onTextChange(View.SENDER_INSTITUTIONS.LookUpText)"
+                                             md-search-text="View.SENDER_INSTITUTIONS.LookUpText"
+                                             md-items="item in View.SENDER_INSTITUTIONS.InstitutionsStore"
+                                             md-item-text="item.institutionName"
+                                             md-min-length="0"
+                                             placeholder="Institución">
+                                <md-item-template>
+                                    <span md-highlight-text="View.Institutions.LookUpText" md-highlight-flags="^i">{{item.institutionName}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    <span ng-if="View.SENDER_INSTITUTIONS.LookUpText!=''"> No hay registros como "{{View.SENDER_INSTITUTIONS.LookUpText}}" en la base de datos.</span>
+                                    <span ng-if="View.SENDER_INSTITUTIONS.LookUpText==''">Empieza a escribir el nombre del departamento/direcci&oacute;n</span>
+                                </md-not-found>
+                            </md-autocomplete>
+                        </div>
+                    </div>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <div layout="row" layout-align="end start">
+                            <md-button class="md-raised md-primary"
+                                       ng-disabled="View.state===View.States.Submitted" ng-click="View.AddSender(View.NewSender)">Añadir</md-button>
+                        </div>
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </div>
+        <div>
+            <hr />
+            <div layout="row" layout-align="start start">
+                <md-input-container class="md-block" flex-gt-sm style="margin-bottom: 0px!important;">
+                    <label>No. Documento</label>
+                    <input ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted"
+                           ng-model="View.newDocument.ReferenceNumber">
+                    <style>
+                        .md-errors-spacer {
+                            display: none !important;
+                        }
+                    </style>
+                    <span ng-if="View.ReferenceNumberExists && !View.isCheckingReferenceNumber" style="font-size:smaller; color:red; font-style:italic">Ya existe un registro con este No. de Documento.</span>
+                    <md-progress-linear ng-if="View.isCheckingReferenceNumber" md-mode="indeterminate"></md-progress-linear>
+                </md-input-container>
+                <md-input-container style="width:50%!important">
+                    <label class="fw-500">Fecha del Documento </label>
+                    <input type="date"
+                           ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted"
+                           class="form-control ng-pristine ng-valid ng-empty ng-touched"
+                           ng-model="View.newDocument.DocumentDate">
+                </md-input-container>
+            </div>
+        </div>
+        <div class="form-row">
+            <hr class="col-md-12" />
+            <div class="col-md-6">
+                <md-input-container class="md-block">
+                    <label>Asunto</label>
+                    <textarea ng-model="View.newDocument.subject"
+                              ng-disabled="View.state===View.States.Submitted"
+                              rows="5"
+                              md-select-on-focus></textarea>
+                </md-input-container>
+            </div>
+            <div class="col-md-6">
+                <md-input-container class="md-block">
+                    <label>Anexos</label>
+                    <textarea ng-model="View.newDocument.annexes"
+                              ng-disabled="View.state===View.States.Submitted"
+                              rows="5"
+                              md-select-on-focus></textarea>
+                </md-input-container>
+            </div>
+        </div>
+        <hr />
+        <label>Archivos</label>
+        <lf-ng-md-file-input lf-files="View.files"
+                             multiple
+                             ng-disabled="View.state===View.States.Submitted"
+                             lf-browse-label="Buscar..."
+                             lf-drag-and-drop-label="Arrastra los archivos a este cuadro..."
+                             lf-remove-label="Remover"
+                             drag
+                             lf-api="api02"
+                             preview></lf-ng-md-file-input>
+        <hr />
+        <div layout="row" layout-align="end start">
+            <span ng-if="View.ReferenceNumberExists" style="color:red">El No. de Documento al parecer no es valido.</span>
+            <md-button class="md-raised md-primary"
+                       ng-disabled="View.state===View.States.Loading || View.state===View.States.Submitted || View.isCheckingReferenceNumber || View.ReferenceNumberExists"
+                       ng-click="View.submit(View.newDocument)">Registrar</md-button>
+
+            <md-button class="md-raised md-primary"
+                       ng-if="View.state===View.States.Submitted"
+                       href="/#!/Documento/{{View.sequenceCode}}">Modificar</md-button>
+        </div>
+        <hr />
+    </div>
+</div>

@@ -1,0 +1,378 @@
+﻿<!-- AUTHOR: Yorki E. Encarnacion M. -->
+<style>
+    .selectdemoSelectHeader {
+        /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */
+    }
+
+        .selectdemoSelectHeader .demo-header-searchbox {
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+        }
+
+        .selectdemoSelectHeader .demo-select-header {
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+            padding-left: 10.667px;
+            height: 48px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: auto;
+        }
+
+        .selectdemoSelectHeader md-content._md {
+            max-height: 240px;
+        }
+
+    md-autocomplete.custom-template {
+    }
+
+    .autocomplete-custom-template li {
+        border-bottom: 1px solid #ccc;
+        height: auto;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        white-space: normal;
+    }
+
+        .autocomplete-custom-template li:last-child {
+            border-bottom-width: 0;
+        }
+
+    .autocomplete-custom-template .item-title,
+    .autocomplete-custom-template .item-metadata {
+        display: block;
+        line-height: 2;
+    }
+
+        .autocomplete-custom-template .item-title md-icon {
+            height: 18px;
+            width: 18px;
+        }
+
+    .custom-container {
+        min-width: 300px !important;
+    }
+
+    [disabled] md-input-container .md-input, md-input-container .md-input[disabled] {
+        background-position: bottom -1px left 0;
+        background-size: 4px 1px;
+        background-repeat: repeat-x;
+        color: black !important
+    }
+
+    .md-select-value > span:not(.md-select-icon) .md-text {
+        display: inline;
+        color: black !important
+    }
+
+    .ribbon {
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+        width: 75px;
+        height: 75px;
+        text-align: right;
+        font-family: 'Hind Madurai', sans-serif;
+    }
+
+        .ribbon span {
+            font-size: 10px;
+            font-weight: bold;
+            color: #ffffff;
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 20px;
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+            width: 100px;
+            display: block;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.02);
+            background: #7fc1fc;
+            background: linear-gradient(rgb(0, 188, 255) 0%, rgb(37, 151, 238) 100%);
+            position: absolute;
+            top: 19px;
+            letter-spacing: 1px;
+            left: -21px;
+        }
+</style>
+
+<md-dialog aria-label="Buscar Material">
+    <form ng-cloak ng-controller="ArticuloController as View">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Buscar Material</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="row">
+                <div class="bgc-white p-20 bd col-md-12" style="padding-bottom:15px!important">
+                    <div>
+                        <div layout="column">
+                            <div flex>
+                            </div>
+                            <div layout-gt-xs="row" layout-padding style="background-color: #ffffff!important">
+                                <div ng-if="View.showNewLabel" class=ribbon><span>NUEVO</span></div>
+                                <md-card style="width: 100%!important;">
+                                    <md-card-title layout="column" flex>
+                                        <div class="form-row"
+                                             layout="column" flex
+                                             style="padding-left: 15px;padding-right: 15px;">
+                                            <div flex layout="row">
+
+                                                <md-input-container flex="100" class="md-block">
+                                                    <label>Segmento</label>
+                                                    <md-select ng-model="View.filters.Segmento"
+                                                               class="md-block"
+                                                               data-md-container-class="selectdemoSelectHeader"
+                                                               ng-change="View.GetFamilia(View.filters.Segmento)">
+                                                        <md-select-header class="demo-select-header">
+                                                            <input ng-model="View.searchSegmento"
+                                                                   type="search"
+                                                                   ng-keydown="$event.stopPropagation()"
+                                                                   ng-change="View.GetSegmentoSearch(View.searchSegmento)"
+                                                                   ng-model-options="{debounce:500}"
+                                                                   placeholder="Buscar segmento.."
+                                                                   class="demo-header-searchbox md-text">
+                                                        </md-select-header>
+                                                        <md-optgroup label="Segmento">
+                                                            <md-option ng-value="{{item.segmentoCBS}}"
+                                                                       ng-repeat="item in View.Segmento" value="{{item.segmentoCBS}}">
+                                                                {{item.descripcionCBS}}
+                                                            </md-option>
+                                                        </md-optgroup>
+                                                    </md-select>
+                                                </md-input-container>
+
+                                                <md-input-container flex="100" class="md-block">
+                                                    <label>Familia</label>
+                                                    <md-select ng-model="View.filters.Familia"
+                                                               class="md-block"
+                                                               data-md-container-class="selectdemoSelectHeader"
+                                                               ng-disabled="View.filters.Segmento==null"
+                                                               ng-change="View.GetClase(View.filters.Familia)">
+                                                        <md-select-header class="demo-select-header">
+                                                            <input ng-model="View.searchFamilia"
+                                                                   type="search"
+                                                                   ng-keydown="$event.stopPropagation()"
+                                                                   ng-change="View.GetFamiliaSearch(View.searchFamilia,View.filters.Segmento)"
+                                                                   ng-model-options="{debounce:500}"
+                                                                   placeholder="Buscar familia.."
+                                                                   class="demo-header-searchbox md-text">
+                                                        </md-select-header>
+                                                        <md-optgroup label="Familia">
+                                                            <md-option ng-value="{{item.familiaCBS}}"
+                                                                       ng-repeat="item in View.Familia" value="{{item.familiaCBS}}">
+                                                                {{item.descripcionCBS}}
+                                                            </md-option>
+                                                        </md-optgroup>
+                                                    </md-select>
+                                                </md-input-container>
+
+                                                <md-input-container flex="100" class="md-block">
+                                                    <label>Clase</label>
+                                                    <md-select ng-model="View.filters.Clase"
+                                                               class="md-block"
+                                                               data-md-container-class="selectdemoSelectHeader"
+                                                               ng-disabled="View.filters.Familia==null"
+                                                               ng-change="View.GetMaterial(View.filters.Clase)">
+                                                        <md-select-header class="demo-select-header">
+                                                            <input ng-model="View.searchClase"
+                                                                   type="search"
+                                                                   ng-keydown="$event.stopPropagation()"
+                                                                   ng-change="View.GetClaseSearch(View.searchClase,View.filters.Familia)"
+                                                                   ng-model-options="{debounce:500}"
+                                                                   placeholder="Buscar clase.."
+                                                                   class="demo-header-searchbox md-text">
+                                                        </md-select-header>
+                                                        <md-optgroup label="Clase">
+                                                            <md-option ng-value="{{item.claseCBS}}"
+                                                                       ng-repeat="item in View.Clase" value="{{item.claseCBS}}">
+                                                                {{item.descripcionCBS}}
+                                                            </md-option>
+                                                        </md-optgroup>
+                                                    </md-select>
+                                                </md-input-container>
+
+                                                <md-input-container flex="100" class="md-block">
+                                                    <label>Material</label>
+                                                    <md-select ng-model="View.NewArticulo.idCBS"
+                                                               class="md-block"
+                                                               data-md-container-class="selectdemoSelectHeader"
+                                                               ng-disabled="View.filters.Clase==null">
+                                                        <md-select-header class="demo-select-header">
+                                                            <input ng-model="View.searchClase"
+                                                                   type="search"
+                                                                   ng-keydown="$event.stopPropagation()"
+                                                                   ng-change="View.GetFamiliaSearch(View.searchClase,View.filters.Clase)"
+                                                                   ng-model-options="{debounce:500}"
+                                                                   placeholder="Buscar material.."
+                                                                   class="demo-header-searchbox md-text">
+                                                        </md-select-header>
+                                                        <md-optgroup label="Material">
+                                                            <md-option ng-value="{{item.idCBS}}"
+                                                                       ng-repeat="item in View.Material" value="{{item.idCBS}}">
+                                                                {{item.descripcionCBS}}
+                                                            </md-option>
+                                                        </md-optgroup>
+                                                    </md-select>
+                                                </md-input-container>
+
+                                            </div>
+                                        </div>
+                                    </md-card-title>
+                                </md-card>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <span flex></span>
+            <md-button ng-click="answer(0)">
+                Cerrar
+            </md-button>
+            <md-button ng-click="answer(View.NewArticulo.idCBS)">
+                Seleccionar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
+
+
+<!--<div class="row" ng-controller="ArticuloController as View">
+    <div class="bgc-white p-20 bd col-md-12" style="padding-bottom:15px!important">
+        <div>
+            <div layout="column">
+                <div flex>
+                </div>
+                <div layout-gt-xs="row" layout-padding style="background-color: #ffffff!important">
+                    <div ng-if="View.showNewLabel" class=ribbon><span>NUEVO</span></div>
+                    <md-card style="width: 100%!important;">
+                        <md-card-title layout="column" flex>
+                            <md-card-title-text>
+                                <span class="md-title">
+                                    <span class="ti-search"></span> Buscar Material
+                                </span>
+                            </md-card-title-text>
+
+                            <div class="form-row"
+                                 layout="column" flex
+                                 style="padding-left: 15px;padding-right: 15px;">
+                                <div flex layout="row">
+
+                                    <md-input-container flex="25" class="md-block">
+                                        <label>Segmento</label>
+                                        <md-select ng-model="View.filters.Segmento"
+                                                   class="md-block"
+                                                   data-md-container-class="selectdemoSelectHeader"
+                                                   ng-change="View.GetFamilia(View.filters.Segmento)">
+                                            <md-select-header class="demo-select-header">
+                                                <input ng-model="View.searchSegmento"
+                                                       type="search"
+                                                       ng-keydown="$event.stopPropagation()"
+                                                       ng-change="View.GetSegmentoSearch(View.searchSegmento)"
+                                                       ng-model-options="{debounce:500}"
+                                                       placeholder="Buscar segmento.."
+                                                       class="demo-header-searchbox md-text">
+                                            </md-select-header>
+                                            <md-optgroup label="Segmento">
+                                                <md-option ng-value="{{item.segmentoCBS}}"
+                                                           ng-repeat="item in View.Segmento" value="{{item.segmentoCBS}}">
+                                                    {{item.descripcionCBS}}
+                                                </md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container flex="25" class="md-block">
+                                        <label>Familia</label>
+                                        <md-select ng-model="View.filters.Familia"
+                                                   class="md-block"
+                                                   data-md-container-class="selectdemoSelectHeader"
+                                                   ng-disabled="View.filters.Segmento==null"
+                                                   ng-change="View.GetClase(View.filters.Familia)">
+                                            <md-select-header class="demo-select-header">
+                                                <input ng-model="View.searchFamilia"
+                                                       type="search"
+                                                       ng-keydown="$event.stopPropagation()"
+                                                       ng-change="View.GetFamiliaSearch(View.searchFamilia,View.filters.Segmento)"
+                                                       ng-model-options="{debounce:500}"
+                                                       placeholder="Buscar familia.."
+                                                       class="demo-header-searchbox md-text">
+                                            </md-select-header>
+                                            <md-optgroup label="Familia">
+                                                <md-option ng-value="{{item.familiaCBS}}"
+                                                           ng-repeat="item in View.Familia" value="{{item.familiaCBS}}">
+                                                    {{item.descripcionCBS}}
+                                                </md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container flex="25" class="md-block">
+                                        <label>Clase</label>
+                                        <md-select ng-model="View.filters.Clase"
+                                                   class="md-block"
+                                                   data-md-container-class="selectdemoSelectHeader"
+                                                   ng-disabled="View.filters.Familia==null"
+                                                   ng-change="View.GetMaterial(View.filters.Clase)">
+                                            <md-select-header class="demo-select-header">
+                                                <input ng-model="View.searchClase"
+                                                       type="search"
+                                                       ng-keydown="$event.stopPropagation()"
+                                                       ng-change="View.GetClaseSearch(View.searchClase,View.filters.Familia)"
+                                                       ng-model-options="{debounce:500}"
+                                                       placeholder="Buscar clase.."
+                                                       class="demo-header-searchbox md-text">
+                                            </md-select-header>
+                                            <md-optgroup label="Clase">
+                                                <md-option ng-value="{{item.claseCBS}}"
+                                                           ng-repeat="item in View.Clase" value="{{item.claseCBS}}">
+                                                    {{item.descripcionCBS}}
+                                                </md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+
+                                    <md-input-container flex="25" class="md-block">
+                                        <label>Material</label>
+                                        <md-select ng-model="View.NewArticulo.idCBS"
+                                                   class="md-block"
+                                                   data-md-container-class="selectdemoSelectHeader"
+                                                   ng-disabled="View.filters.Clase==null">
+                                            <md-select-header class="demo-select-header">
+                                                <input ng-model="View.searchClase"
+                                                       type="search"
+                                                       ng-keydown="$event.stopPropagation()"
+                                                       ng-change="View.GetFamiliaSearch(View.searchClase,View.filters.Clase)"
+                                                       ng-model-options="{debounce:500}"
+                                                       placeholder="Buscar material.."
+                                                       class="demo-header-searchbox md-text">
+                                            </md-select-header>
+                                            <md-optgroup label="Material">
+                                                <md-option ng-value="{{item.idCBS}}"
+                                                           ng-repeat="item in View.Material" value="{{item.idCBS}}">
+                                                    {{item.descripcionCBS}}
+                                                </md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+
+                                </div>
+                            </div>
+                        </md-card-title>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->

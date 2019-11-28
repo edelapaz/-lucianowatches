@@ -1,0 +1,247 @@
+﻿<!-- AUTHOR: Brawny Javier Mateo Reyes -->
+<div ng-controller="AppController">
+    <md-progress-circular ng-if="state == AppStates.LoadingVM" style="position:absolute;top:43%; left:50%" md-diameter="96"></md-progress-circular>
+
+    <div class="bgc-white p-20 bd animated fadeIn" ng-show="App">
+        <h4 class="c-grey-900 mB-20">{{App.applicationName}}</h4>
+        <div class="mT-10">
+            <div class="progress" ng-if="(state===AppStates.Submiting) || (state===AppStates.Loading)">
+                <div class="indeterminate" style="background-color: #0076CD;"></div>
+            </div>
+            <form ng-class="(state===AppStates.Submiting) || (state===AppStates.Loading)?'formLoading':''">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre de la Aplicaci&oacute;n</label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="App.applicationName"
+                           placeholder="Nombre">
+                </div>
+                <div class="form-group">
+                    <label>Descripci&oacute;n de la Aplicaci&oacute;n</label>
+                    <textarea class="form-control" ng-model="App.description"></textarea>
+                    <small class="form-text text-muted">Breve descripci&oacute;n acerca de lo que hace la app.</small>
+                </div>
+                <div class="form-group">
+                    <label ng-if="App.isActive">Activada</label>
+                    <label ng-if="!App.isActive">Desactivada</label>
+                    <input ng-model="App.isActive" class="tgl tgl-ios" id="cb2" type="checkbox" />
+                    <label class="tgl-btn" for="cb2"></label>
+                    <button ng-disabled="state===AppStates.Submiting"
+                            ng-click="Register()"
+                            class="btn btn-primary pull-right">
+                        Actualizar
+                    </button>
+                </div>
+            </form>
+            <form ng-class="(state===AppStates.Submiting) || (state===AppStates.Loading)?'formLoading':''">
+                <hr />
+                <h4 class="c-grey-900 mB-20">
+                    Roles de Usuarios
+                </h4>
+                <p>
+                    Cada aplicaci&oacute;n define sus roles de usuario.
+                    <strong>Un usuario puede tener uno o m&aacute;s roles.</strong>
+                </p>
+                <div>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label>C&oacute;digo</label>
+                            <input type="text"
+                                   class="form-control"
+                                   ng-model="NewRole.code"
+                                   placeholder="EJ: ADMIN">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>Nombre</label>
+                            <input type="text"
+                                   ng-model="NewRole.name"
+                                   class="form-control" />
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label>Descripci&oacute;n</label>
+                            <input type="text"
+                                   ng-model="NewRole.description"
+                                   class="form-control">
+                        </div>
+                        <div class="form-group col-md-1">
+                            <button style="margin-top: 28px;float:right"
+                                    class="btn btn-primary"
+                                    ng-click="AddRole(NewRole)">
+                                A&ntilde;adir
+                            </button>
+                        </div>
+                    </div>
+                    <table class="table" ng-show="App.userRoles.length>0">
+
+                        <thead class="thead" style="background-color: #2296f3;color:white">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">C&oacute;digo</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripci&oacute;n</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="role in App.userRoles">
+                                <th scope="row">{{$index +1}}</th>
+                                <td>{{role.userRoleID}}</td>
+                                <td>{{role.userRoleName}}</td>
+                                <td>{{role.description}}</td>
+                                <td>
+                                    <button type="button"
+                                            ng-click="DeleteRole(role)"
+                                            class="btn cur-p btn-outline-danger pull-right">
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr />
+                <h4 class="c-grey-900 mB-20">
+                    Usuarios
+                    <button style="float:right" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">A&ntilde;adir Nuevo</button>
+                </h4>
+                <table class="table" ng-show="App.userRoles.length>0">
+                    <thead class="thead" style="background-color: #2296f3;color:white">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Email</th>
+                            <td>Cargo</td>
+                            <td>Departamento</td>
+                            <th scope="col" style="text-align:right">Roles</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="user in App.Users">
+                            <th scope="row">{{user.userID}}</th>
+                            <td>{{user.firstName  | capitalize}} {{user.secondName  | capitalize}} {{user.firstLastName  | capitalize}} {{user.secondLastName  | capitalize}}</td>
+                            <td>{{user.email  | capitalize}}</td>
+                            <td>{{user.jobTitleName}}</td>
+                            <td>{{user.departmentName}}</td>
+                            <td>
+                                <button type="button"
+                                        data-target="#usersRoles"
+                                        data-toggle="modal"
+                                        ng-click="SetRolesModalUser(user)"
+                                        class="btn cur-p btn-outline-danger pull-right">
+                                    Editar Roles
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group col-md-12">
+                        <form ng-submit="GetUser(NewAppUser.userID)">
+                            <label>ID del Usuario (C&eacute;dula)</label>
+                            <input type="text"
+                                   ng-model="NewAppUser.userID"
+                                   ng-disabled="state == AppStates.SearchingUser || state == AppStates.CreatingUser"
+                                   class="form-control" />
+                            <div class="progress" ng-if="state == AppStates.SearchingUser || state == AppStates.CreatingUser">
+                                <div class="indeterminate" style="background-color: #0076CD;"></div>
+                            </div>
+                            <small class="form-text text-muted">Presione ENTER para buscar.</small>
+                            <small style="color:red" ng-if="UserNotFound">Usuario no encontrado.</small>
+                        </form>
+                        <div ng-if="NewAppUser.firstName" ng-class="state == AppStates.CreatingUser? 'formLoading':''">
+                            <hr />
+                            <table>
+                                <tr>
+                                    <td>
+                                        <img class="img-circle" src="/assets/static/images/userPlaceholder.png" style="height: auto;width: 110px;">
+                                    </td>
+                                    <td style="padding-left: 20px;">
+                                        <span style="font-size:large; font-weight:bold">
+                                            {{NewAppUser.firstName | capitalize}} {{NewAppUser.secondName | capitalize}} {{NewAppUser.firstLastName | capitalize}} {{NewAppUser.secondLastName | capitalize}}
+                                        </span>
+                                        <br />
+                                        <span> C&eacute;dula: {{NewAppUser.userID}}</span>
+                                        <br />
+                                        <span>{{NewAppUser.jobTitleName}}</span>
+                                        <br />
+                                        <span style="font-size:smaller">{{NewAppUser.departmentName}}</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <hr />
+                            <h5>Roles De Usuario</h5>
+                            <table style="width: 100%!important;">
+                                <tr ng-repeat="role in App.userRoles">
+                                    <td>
+                                        {{role.userRoleName}}
+                                    </td>
+                                    <td>
+                                        <input ng-model="NewAppUser.roles[role.userRoleID]" class="tgl tgl-ios" id="Tgle{{NewAppUser.userID}}_{{role.userRoleID}}" type="checkbox" />
+                                        <label style="float:right" class="tgl-btn" for="Tgle{{NewAppUser.userID}}_{{role.userRoleID}}"></label>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" ng-disabled="state == AppStates.SearchingUser || state == AppStates.CreatingUser || !(NewAppUser.firstName)" ng-click="CreateAppUser(NewAppUser)" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="usersRoles" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Roles De Usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group col-md-12">
+                        <div class="progress" ng-if="(state===AppStates.UpdatingUserRoles)">
+                            <div class="indeterminate" style="background-color: #5FBD00;"></div>
+                        </div>
+                        <hr />
+                        <table style="width: 100%!important;" ng-class="(state===AppStates.UpdatingUserRoles)? 'formLoading':''">
+                            <tr ng-repeat="role in RolesModal.Roles">
+                                <td>
+                                    {{role.userRoleName}}
+                                </td>
+                                <td>
+                                    <input ng-model="role.Selected" class="tgl tgl-ios" id="Tgle{{role.userRoleID}}" type="checkbox" />
+                                    <label style="float:right" class="tgl-btn" for="Tgle{{role.userRoleID}}"></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button"
+                            ng-disabled="(state===AppStates.UpdatingUserRoles)"
+                            class="btn btn-primary"
+                            ng-click="UpdateUserRoles(RolesModal.UserID)">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

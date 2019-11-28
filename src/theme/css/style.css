@@ -1,0 +1,44 @@
+html,body
+{
+	margin: 0;
+	padding: 0;
+}
+a
+{
+	text-decoration: none;
+	transition: all 0.20s;
+}
+h1,h2,h3
+{
+	font-family: 'Montserrat', sans-serif;
+}
+header.header
+{
+	background: #000;
+	padding: 10px 0 20px 0;
+	color:#FFF;
+}
+.md-display-none
+{
+	margin-top: 4px;
+	border-bottom:1px solid rgba(33, 33, 33,0.50);
+}
+/*
+menu_principal
+*/
+#menu_principal
+{
+	list-style: none;
+	text-align: right;
+}
+#menu_principal li
+{
+	display: inline-block;
+	vertical-align: top;
+}
+#menu_principal li > a
+{
+	display: block;
+	padding: 4px 10px;
+	text-transform: uppercase;
+}

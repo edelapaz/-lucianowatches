@@ -1,0 +1,181 @@
+﻿<!-- AUTHOR: Yorki E. Encarnacion Moquete -->
+<style>
+    .selectdemoSelectHeader {
+        /* Please note: All these selectors are only applied to children of elements with the 'selectdemoSelectHeader' class */
+    }
+
+        .selectdemoSelectHeader .demo-header-searchbox {
+            border: none;
+            outline: none;
+            height: 100%;
+            width: 100%;
+            padding: 0;
+        }
+
+        .selectdemoSelectHeader .demo-select-header {
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(0, 0, 0, 0.14), 0 0 0 0 rgba(0, 0, 0, 0.12);
+            padding-left: 10.667px;
+            height: 48px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: auto;
+        }
+
+        .selectdemoSelectHeader md-content._md {
+            max-height: 240px;
+        }
+</style>
+<div ng-controller="SolicitudOrdenCompraController as View" layout="column">
+    <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions" style="background-color:rgb(0, 118, 205)!important"
+                layout="row"
+                layout-align="space-between center">
+        <div class="md-toolbar-tools">
+            <h5>Solicitud de Compra</h5>
+        </div>
+        <div title="Ayuda"
+             ng-click="View.ShowAdvancedFilters = true"
+             onclick="javascript: introJs().setOption('nextLabel', 'Siguiente').setOption('prevLabel', 'Anterior').setOption('doneLabel', 'Listo').setOption('exitOnEsc', true).setOption('showStepNumbers', true).setOption('showProgress', true).setOption('skipLabel', 'Omitir').start();"
+             style="padding:16px; cursor:pointer">
+            <i class="ti-help-alt"> </i>
+        </div>
+    </md-toolbar>
+
+    <div class="bgc-white p-20 bd col-md-12">
+        <div class="col-md-12">
+            <h5>Filtros</h5>
+            <hr />
+            <!--<pre>{{View.SolicitudOrdenCompra|json}}</pre>-->
+        </div>
+
+        <div layout-gt-sm="row">
+            <div class="col-md-4">
+                <label>Departamento</label>
+                <md-select ng-model="View.filtro.IdDepartamento"
+                           ng-change="View.GetSolicitudOrdenCompras()"
+                           style="margin-top:0!important"
+                           class="md-block"
+                           data-md-container-class="selectdemoSelectHeader">
+                    <md-select-header class="demo-select-header">
+                        <input ng-model="View.searchDepartamento"
+                               type="search"
+                               ng-keydown="$event.stopPropagation()"
+                               ng-change="View.GetDepartamentoSearch(View.searchDepartamento)"
+                               ng-model-options="{debounce:500}"
+                               placeholder="Buscar departamento.."
+                               class="demo-header-searchbox md-text">
+                    </md-select-header>
+                    <md-optgroup label="Departamento">
+                        <md-option ng-repeat="item in View.Departamento" value="{{item.departmentID}}">{{item.departmentName}}</md-option>
+                    </md-optgroup>
+            </div>
+            <div class="col-md-4">
+                <label>Estado</label>
+                <md-select ng-model="View.filtro.EstadoSolicitud"
+                           ng-change="View.GetSolicitudOrdenCompras()"
+                           style="margin-top:0!important">
+                    <md-option ng-value="1" selected>
+                        Pendiente
+                    </md-option>
+                    <md-option ng-value="2">
+                        Recibido Completo
+                    </md-option>
+                    <md-option ng-value="3">
+                        Recibido Parcial
+                    </md-option>
+                    <md-option ng-value="4">
+                        Rechazado
+                    </md-option>
+                </md-select>
+            </div>
+            <div class="form-group col-md-2">
+                <label class="fw-500">Fecha Inicio</label>
+                <input type="date"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        ng-model="View.filtro.StartDate"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email">
+            </div>
+            <div class="form-group col-md-2">
+                <label class="fw-500">Fecha Fin</label>
+                <input type="date"
+                        class="form-control"
+                        ng-model="View.filtro.EndDate"
+                        id="exampleInputEmail1"
+                        aria-describedby="emailHelp"
+                        placeholder="Enter email">
+            </div>
+        </div>
+
+        <div layout="row" layout-align="space-between start">
+            <div>
+
+            </div>
+            <div>
+                <md-button class="md-primary"
+                           style="color: rgb(255, 87, 93); border-color: red; border-width: 1px; border-style: solid;"
+                           ng-disabled="View.loadingDocuments"
+                           ng-click="View.filtro=null;View.GetSolicitudOrdenCompras()"><span class="ti-na"></span>&nbsp;&nbsp;Limpiar Filtros</md-button>
+                <md-button class="md-primary"
+                           style="color: #3f51b5; border-color: #3f51b5; border-width: 1px; border-style: solid;"
+                           ng-disabled="View.loadingDocuments"
+                           ng-click="View.GetSolicitudOrdenCompras()"><span class="ti-reload"></span>&nbsp;&nbsp;Refrezcar</md-button>
+                <md-button class="md-raised md-primary"
+                           style="background-color:rgb(0, 118, 205)!important"
+                           data-step="2"
+                           data-intro="Luego de introducir el/los filtros, presiona este botón"
+                           ng-disabled="View.loadingDocuments"
+                           ng-click="View.GetSolicitudOrdenCompras()"><span class="ti-search"></span>&nbsp;&nbsp;Filtrar</md-button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h6 ng-if="!View.SolicitudOrdenCompra.length && !View.loadingDocuments" style="font-weight: 600;color: #3f51b5; text-align: center;">No hay Registros</h6>
+                <md-table-container data-step="4"
+                                    data-intro="Aquí serán mostrados los registros segun tu criterio de búsqueda (filtros)"
+                                    ng-if="!View.loadingDocuments && View.SolicitudOrdenCompra.length"
+                                    style="width:100%!important;font-weight:500!important">
+                    <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
+                        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                            <tr md-row>
+                                <th md-column>Id</th>
+                                <th md-column>Fecha</th>
+                                <th md-column>Suplidor</th>
+                                <th md-column>Departamento</th>
+                                <th md-column>Observacion</th>
+                            </tr>
+                        </thead>
+                        <tbody md-body>
+                            <tr md-row md-select="dessert" md-select-id="name" md-auto-select ng-repeat="solicitudOrdenCompras in View.SolicitudOrdenCompra">
+                                <td md-cell>{{solicitudOrdenCompras.idSolicitudOrdenCompra}}</td>
+                                <td md-cell>{{View.formatDate(solicitudOrdenCompras.fechaRepcSolicitudOrdenCompra)}}</td>
+                                <td md-cell>{{solicitudOrdenCompras.suplidorOrdenCompra}}</td>
+                                <td md-cell>{{solicitudOrdenCompras.departmentName}}</td>
+                                <td md-cell>{{solicitudOrdenCompras.observacionRequerimiento}}</td>
+                                <td layout="col" layout-align="end center" style="padding:0!important" md-cell>
+                                    <md-button md-no-ink class="md-primary"
+                                               href="/#!/Registrar/SolicitudDet/{{solicitudOrdenCompras.idSolicitudOrdenCompra}}"     
+                                               style="color:blue">
+                                        ver
+                                    </md-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </md-table-container>
+                <md-table-pagination ng-if="!View.loadingDocuments"
+                                     md-limit="View.limit"
+                                     data-step="5"
+                                     data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                     md-limit-options="[10,20,30,40]"
+                                     md-page="View.page"
+                                     md-total="{{View.total}}"
+                                     md-on-paginate="View.GetArticulos"
+                                     md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                     md-page-select></md-table-pagination>
+            </div>
+        </div>
+    </div>
+</div>

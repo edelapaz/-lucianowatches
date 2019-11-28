@@ -1,0 +1,227 @@
+﻿<!-- AUTHOR: Brawny Javier Mateo Reyes -->
+<style>
+    .formLoading {
+        opacity: 0.3 !important;
+    }
+</style>
+<div class="row" ng-controller="NewUserController">
+    <div class="masonry-item col-md-12" style="margin-bottom:10px;" ng-if="AppState===AppStates.Submitted">
+        <div class="bgc-white p-20 bd" style=" background-color:#e8ffef!important">
+            <h5> El usuario ha sido registrado exitosamente</h5>
+            <span style="font-weight:bold">Email: </span><span>{{NewUser.Email}}</span>
+            <br />
+            <span style="font-weight:bold">Cedula: </span><span>{{NewUser.Cedula}}</span>
+            <br />
+            <span style="font-weight:bold">Contrase&ntilde;a: </span><span>{{NewUser.Password}}</span>
+            <br />
+            <span style="color:red">OJO: </span><span style="font-size:smaller">Se le solicitar&aacute; el cambio de contraseña al usuario la primera vez que inicie sesi&oacute;n.</span>
+        </div>
+    </div>
+    <hr />
+    <div class="masonry-item col-md-12">
+        <div class="bgc-white p-20 bd">
+            <h6 class="c-grey-900">
+                <span ng-if="!(AppState===AppStates.Submitted)">Creaci&oacute;n de </span> Nuevo Usuario
+            </h6>
+            <div class="mT-10" ng-class="AppState===AppStates.Submitting?'formLoading':''">
+                <div class="progress" ng-if="AppState === AppStates.Submitting">
+                    <div class="indeterminate" style="background-color: #5fbd00;"></div>
+                </div>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Primer Nombre</label>
+                            <input ng-model="NewUser.FirstName" ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted" type="text" class="form-control" placeholder="Primer Nombre">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Segundo Nombre</label>
+                            <input ng-model="NewUser.SecondName" ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted" type="text" class="form-control" placeholder="Segundo Nombre">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Primer Apellido</label>
+                            <input ng-model="NewUser.FirstLastName" ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted" type="text" class="form-control" placeholder="Primer Apellido">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Segundo Apellido</label>
+                            <input ng-model="NewUser.SecondLastName" ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted" type="text" class="form-control" placeholder="Segundo Apellido">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputEmail4">Email</label>
+                            <input ng-model="NewUser.Email"
+                                   ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                   type="email"
+                                   class="form-control"
+                                   id="inputEmail4"
+                                   ng-change="OnEmailChange(NewUser.Email)"
+                                   placeholder="Email">
+                            <span ng-if="NewUser.Email" style="color:{{EmailValidation.Color}}">{{EmailValidation.Message}}</span>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>G&eacute;nero</label>
+                            <select ng-model="NewUser.Gender" ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted" class="form-control">
+                                <option disabled selected hidden>Seleccionar...</option>
+                                <option value="2">Masculino</option>
+                                <option value="3">Femenino</option>
+                                <option value="4">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label>Cedula</label>
+                            <input ng-model="NewUser.Cedula" ng-change="onIDChange(NewUser.Cedula)" ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted" type="text" class="form-control" placeholder="Cedula">
+                            <span ng-if="NewUser.Cedula && NewUser.Cedula.length >=11" style="color:{{IDValidation.Color}}">{{IDValidation.Message}}</span>
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Pa&iacute;s de Origen</label>
+                            <select class="form-control"
+                                    ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                    ng-model="NewUser.BirthCountry"
+                                    ng-options="country.countryName for country in Countries track by country.countryIso2Code"></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Direcci&oacute;n</label>
+                        <input ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                               type="text"
+                               class="form-control"
+                               ng-model="NewUser.Address"
+                               placeholder="Calle, número">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Provincia</label>
+                            <select ng-model="NewUser.Province"
+                                    ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                    ng-change="LoadMunicipios(NewUser.Province.provinceID)"
+                                    ng-options="province.provinceName for province in Provinces track by province.provinceID"
+                                    class="form-control"></select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Municipio</label>
+                            <select ng-disabled="!NewUser.Province.provinceID || AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                    ng-model="NewUser.Municipality"
+                                    ng-change="LoadSectors(NewUser.Municipality.municipalityID)"
+                                    ng-options="municipality.municipalityName for municipality in Municipalities track by municipality.municipalityID" class="form-control"></select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">Sector</label>
+                            <select ng-disabled="!NewUser.Province.provinceID || !NewUser.Municipality.municipalityID || AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                    ng-model="NewUser.Sector"
+                                    ng-options="sector.sectorName for sector in Sectors track by sector.sectorID" class="form-control"></select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="fw-500">Fecha de Nacimiento</label>
+                            <div class="timepicker-input input-icon form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon bgc-white bd bdwR-5">
+                                        <i class="ti-calendar"></i>
+                                    </div>
+                                    <input ng-model="NewUser.BirthDate"
+                                           ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                           class="form-control"
+                                           type="date" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Cargo</label>
+                            <md-autocomplete ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                             md-no-cache="JobTitle.cacheDisabled"
+                                             md-selected-item="NewUser.JobTitle"
+                                             md-search-text-change="JobTitle.onTextChange(JobTitle.LookUpText)"
+                                             md-search-text="JobTitle.LookUpText"
+                                             md-selected-item-change="JobTitle.onItemChange(item)"
+                                             md-items="item in JobTitle.JobTitles"
+                                             md-item-text="item.jobTitleName"
+                                             md-min-length="0"
+                                             placeholder="Cargo">
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.jobTitleName}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    <span ng-if="JobTitle.LookUpText!=''"> No hay registros como "{{JobTitle.LookUpText}}" en la base de datos.</span>
+                                    <span ng-if="JobTitle.LookUpText==''">Empieza a escribir el nombre del cargo</span>
+                                </md-not-found>
+                            </md-autocomplete>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Departamento</label>
+                            <md-autocomplete ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                             md-no-cache="Departments.cacheDisabled"
+                                             md-selected-item="NewUser.Department"
+                                             md-search-text-change="Departments.onTextChange(Departments.LookUpText)"
+                                             md-search-text="Departments.LookUpText"
+                                             md-selected-item-change="Departments.onItemChange(item)"
+                                             md-items="item in Departments.Departments"
+                                             md-item-text="item.departmentName"
+                                             md-min-length="0"
+                                             placeholder="Departamento">
+                                <md-item-template>
+                                    <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.departmentName}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    <span ng-if="Departments.LookUpText!=''"> No hay registros como "{{Departments.LookUpText}}" en la base de datos.</span>
+                                    <span ng-if="Departments.LookUpText==''">Empieza a escribir el nombre del departamento/direcci&oacute;n</span>
+                                </md-not-found>
+                            </md-autocomplete>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Sucursal</label>
+                            <md-autocomplete ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                                             md-selected-item="NewUser.Location"
+                                             md-search-text-change="Locations.onTextChange(Locations.LookUpText)"
+                                             md-search-text="Locations.LookUpText"
+                                             md-items="item in Locations.Locations"
+                                             md-item-text="item.locationName"
+                                             md-require-match="true"
+                                             md-select-on-match="true"
+                                             md-match-case-insensitive="true"
+                                             placeholder="Sucursal">
+                                <md-item-template>
+                                    <span md-highlight-text="Locations.LookUpText" md-highlight-flags="^i">{{item.locationName}}</span>
+                                </md-item-template>
+                                <md-not-found>
+                                    <span ng-if="Locations.LookUpText!=''"> No hay registros como "{{Locations.LookUpText}}" en la base de datos.</span>
+                                    <span ng-if="Locations.LookUpText==''">Empieza a escribir el nombre de la sucursal</span>
+                                </md-not-found>
+                            </md-autocomplete>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <hr />
+                        <div class="form-group col-md-6">
+                            <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                <input ng-model="NewUser.isServerAdmin" type="checkbox" id="inputCall2" name="inputCheckboxesCall" class="peer">
+                                <label for="inputCall2" class="peers peer-greed js-sb ai-c">
+                                    <span class="peer peer-greed">Registrar como administrador del servidor</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="checkbox checkbox-circle checkbox-info peers ai-c">
+                                <input ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted" ng-model="NewUser.isServerAdmin" type="checkbox" id="inputCall2" name="inputCheckboxesCall" class="peer">
+                                <label for="inputCall2" class="peers peer-greed js-sb ai-c">
+                                    <span class="peer peer-greed">Registrar como usuario Activo</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button ng-if="!(AppState===AppStates.Submitted)"
+                            ng-disabled="AppState===AppStates.Submitting || AppState===AppStates.Submitted"
+                            ng-click="Register(NewUser)"
+                            class="btn btn-primary">
+                        Registrar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

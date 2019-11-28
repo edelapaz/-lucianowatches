@@ -1,0 +1,103 @@
+﻿<!-- AUTHOR: Yorki E. Encarnacion Moquete -->
+<div ng-controller="UnidadMedidaController as vm" class="row">
+    <div class="masonry-item col-md-12" style="margin-bottom:15px!important">
+        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions"
+                    layout="row"
+                    layout-align="space-between center">
+            <div class="md-toolbar-tools">
+                <h5>Unidad Medida</h5>
+            </div>
+            <div title="Ayuda"
+                 onclick="javascript: introJs().setOption('nextLabel', 'Siguiente').setOption('prevLabel', 'Anterior').setOption('doneLabel', 'Listo').setOption('exitOnEsc', true).setOption('showStepNumbers', true).setOption('showProgress', true).setOption('skipLabel', 'Omitir').start();"
+                 style="padding:16px; cursor:pointer">
+                <i class="ti-help-alt"> </i>
+            </div>
+        </md-toolbar>
+        <div class="bgc-white p-20 bd">
+            <div class="mT-30">
+                <form>
+                    <div class="row"
+                         data-step="1"
+                         data-intro="Introduce aquí los datos del unidad de medida que deseas crear.">
+                        <div class="col-md-6">
+                            <md-input-container style="margin-bottom:0!important" class="md-block" flex-gt-sm>
+                                <label>Nombre del Unidad Medida</label>
+                                <input ng-model="vm.NewUnidadMedida.NombreUnidadMedida">
+                            </md-input-container>
+                        </div>
+                        <div class="col-md-12">
+                            <div layout="row" layout-align="end start">
+                                <md-button class="md-raised md-primary"
+                                           data-step="2"
+                                           data-intro="Luego presiona este botón para enviar la solicitud de creación."
+                                           ng-disabled="vm.isCreatingAnUnidadMedida"
+                                           ng-click="vm.CreateUnidadMedida(vm.NewUnidadMedida)">Añadir</md-button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="masonry-item col-md-12">
+        <md-toolbar class="demo-toolbar md-primary _md _md-toolbar-transitions">
+            <div class="md-toolbar-tools"> <h5>Unidades de Medidas</h5></div>
+        </md-toolbar>
+        <div class="bgc-white p-20 bd">
+            <div class="row" layout="row" layout-align="end start">
+                <form ng-submit="vm.GetUnidadMedidas()"
+                      class="col-md-12">
+                    <div>
+                        <!--<md-input-container style="margin-bottom:0!important"
+                                            class="md-block"
+                                            data-step="3"
+                                            data-intro="Introduce aqui algún criterio de búsqueda para filtrar las almacenes mostradas."
+                                            flex-gt-sm>
+                            <label>Filtro</label>
+                            <input ng-model="vm.lookupFilter">
+                        </md-input-container>-->
+                    </div>
+                </form>
+                <div>
+
+                    <!--<md-button class="md-raised md-primary pull-right"
+                               data-step="4"
+                               data-intro="Luego de introducir el/los filtros, presiona este botón"
+                               ng-disabled="VM.loadingDocuments"
+                               ng-click="vm.GetAlmacenes(vm.page,vm.limit)">Filtrar</md-button>-->
+                </div>
+            </div>
+            <md-table-container data-step="3"
+                                data-intro="Acá aparecerán las unidades de medidas.">
+                <table md-table>
+                    <thead md-head>
+                        <tr md-row>
+                            <th md-column>Nombre Unidad Medida</th>
+                        </tr>
+                    </thead>
+                    <tbody md-body>
+                        <tr md-row ng-repeat="unidadmedida in vm.UnidadMedidas">
+                            <td md-cell ng-click="vm.Edit(unidadmedida,'nombreUnidadMedida', 'Nombre Unidad de Medida')">{{unidadmedida.nombreUnidadMedida}}</td>
+                            <td layout="col" layout-align="end center" style="padding:0!important" md-cell>
+                                <md-button md-no-ink class="md-primary"
+                                           ng-click="vm.Delete(unidadmedida, $event)"
+                                           style="color:red">
+                                    Eliminar
+                                </md-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </md-table-container>
+            <md-table-pagination md-limit="vm.limit"
+                                 md-limit-options="[10,20,30,40]"
+                                 md-page="vm.page"
+                                 md-total="{{vm.total}}"
+                                 md-on-paginate="vm.GetAlmacenes"
+                                 data-step="4"
+                                 data-intro="Aquí puedes controlar la cantidad de registros que se te mostrarán"
+                                 md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}"
+                                 md-page-select></md-table-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+﻿<!-- AUTHOR: Brawny Javier Mateo Reyes -->
+<div class="bgc-white p-20 bd animated fadeIn" ng-controller="NewAppController">
+    <style>
+        .formLoading {
+            opacity: 0.3 !important;
+        }
+    </style>
+    <h5 class="c-grey-900" style="margin-bottom: 0px;">Registro de Nueva Aplicaci&oacute;n</h5>
+    <small class="form-text text-muted">Los campos marcados con un asterisco (<span style="color:red">*</span>) son requeridos.</small>
+    <div class="mT-10">
+        <div class="progress" ng-if="state===AppStates.Submiting">
+            <div class="indeterminate" style="background-color: #5fbd00;"></div>
+        </div>
+        <form ng-class="state===AppStates.Submiting?'formLoading':''">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre de la Aplicaci&oacute;n</label><span style="color:red">*</span>
+                <input type="text"
+                       class="form-control"
+                       ng-model="NewApp.applicationName"
+                       placeholder="Nombre">
+            </div>
+            <div class="form-group">
+                <label>Descripci&oacute;n de la Aplicaci&oacute;n</label>
+                <textarea class="form-control" ng-model="NewApp.description"></textarea>
+                <small class="form-text text-muted">Provee una breve descripci&oacute;n acerca de lo que hace la app.</small>
+            </div>
+            <div class="form-group">
+                <label>URl de la Aplicaci&oacute;n</label><span style="color:red">*</span>
+                <input ng-model="NewApp.Uri"
+                       class="form-control" />
+                <small class="form-text text-muted">A que URL debemos de acceder el usuario para utilizar la aplicaci&oacute;n</small>
+            </div>
+            <div class="form-group">
+                <label>URl de redireccionamiento</label>
+                <input ng-model="NewApp.RedirectUri"
+                       class="form-control" />
+                <small class="form-text text-muted">A que URL debemos de redireccionar al usuario despues de este haberse logueado</small>
+            </div>
+            <div class="form-group">
+                <label>URl de redireccionamiento cerrado sesi&oacute;n</label>
+                <input ng-model="NewApp.PostLogoutRedirectUri"
+                       class="form-control" />
+                <small class="form-text text-muted">A que URL debemos de redireccionar al usuario despues de este haberse deslogueado</small>
+            </div>
+            <div>
+                <div class="bgc-white bd bdrs-3 p-20 mB-20">
+                    <h4 class="c-grey-900 mB-20">
+                        Roles de Usuarios
+                    </h4>
+                    <p>
+                        Cada aplicaci&oacute;n define sus roles de usuario.
+                        <strong>Un usuario puede tener uno o m&aacute;s roles.</strong>
+                    </p>
+                    <div>
+                        <div class="form-row">
+                            <div class="form-group col-md-2">
+                                <label>C&oacute;digo</label><span style="color:red">*</span>
+                                <input type="text"
+                                       class="form-control"
+                                       ng-model="NewRole.code"
+                                       placeholder="EJ: ADMIN">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Nombre</label><span style="color:red">*</span>
+                                <input type="text"
+                                       ng-model="NewRole.name"
+                                       class="form-control" />
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label>Descripci&oacute;n</label>
+                                <input type="text"
+                                       ng-model="NewRole.description"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group col-md-1">
+                                <button style="margin-top: 28px;"
+                                        class="btn btn-primary"
+                                        ng-click="AddRole(NewRole)">
+                                    A&ntilde;adir
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <table class="table" ng-show="NewApp.userRoles.length>0">
+                        <thead class="thead" style="background-color: #2296f3;color:white">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">C&oacute;digo</th>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Descripci&oacute;n</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="role in NewApp.userRoles">
+                                <th scope="row">{{$index}}</th>
+                                <td>{{role.code}}</td>
+                                <td>{{role.name}}</td>
+                                <td>{{role.description}}</td>
+                                <td>
+                                    <button type="button"
+                                            ng-click="DeleteRole(role)"
+                                            class="btn cur-p btn-outline-danger pull-right">
+                                        Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="checkbox checkbox-circle checkbox-info peers ai-c mB-15">
+                <input type="checkbox" id="inputCall1" name="inputCheckboxesCall" class="peer">
+                <label for="inputCall1" class="peers peer-greed js-sb ai-c">
+                    <span class="peer peer-greed">Registrar la aplicaci&oacute;n como inactiva</span>
+                </label>
+            </div>
+            <div class="form-group">
+                <button ng-if="state===AppStates.Normal && !(NewApp.applicationID)" ng-click="Register()" class="btn btn-primary">Registrar</button>
+                <button ng-if="state===AppStates.Submiting" class="btn btn-primary disabled">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>
