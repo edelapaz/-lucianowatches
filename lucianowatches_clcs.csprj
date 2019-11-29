@@ -3980,38 +3980,38 @@
 <treenode node="security;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\hooks\sce_firewall.php;f8;28;2;32;;;;vpos;;v;;a;;r;;d1,29;;b1,0;;m0;;e">
 </treenode>
 </treenode>
-<treenode node="SCE_Model;PHP:Class Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f0;11;1;187;;;;vpos;;v;;aCI_Model;;c;;r&#10;Definition&#10;    class SCE_Model extends CI_Model&#10;&#10;Description&#10;     Super Class;;d0,12;;b0,0;;m0;;e">
-<treenode node="__construct;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;15;2;19;;;;vpos;;v;;a;;r;;d1,16;;b0,0;;m0;;e">
+<treenode node="SCE_Model;PHP:Class Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f0;9;1;216;;;;vpos;;v;;aCI_Model;;c;;r;;d32,9;;b0,0;;m0;;e">
+<treenode node="__construct;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f11;12;2;16;;;;vpos;;v;;a;;r;;d34,12;;b1,0;;m0;;e">
 </treenode>
-<treenode node="consultaCedula;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;60;2;66;;;;vpos;;v;;a;;r;;d1,61;;b0,0;;m0;;ecedula;;p">
+<treenode node="dbSearch;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;31;2;42;;;;vpos;;v;;a;;r;;d42,31;;b1,0;;m0;;esearch;;p">
 </treenode>
-<treenode node="consultaEmail;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;53;2;59;;;;vpos;;v;;a;;r&#10;Definition&#10;    consultaEmail($email)&#10;&#10;Description&#10;     Consulta por correo electronico&#10;&#10;Parameters:&#10;     $email;;d1,54;;b0,0;;m0;;e $email;;p">
+<treenode node="delete;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;138;2;142;;;;vpos;;v;;a;;r;;d34,138;;b1,0;;m0;;eid;;p">
 </treenode>
-<treenode node="delete;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;180;2;186;;;;vpos;;v;;a;;r&#10;Definition&#10;    delete($id)&#10;&#10;Description&#10;     &#10;&#10;Parameters:&#10;     $id;;d1,181;;b0,0;;m0;;e $id;;p">
+<treenode node="fields;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;20;2;27;;;;vpos;;v;;a;;r;;d30,20;;b1,0;;m0;;edata;;p">
 </treenode>
-<treenode node="find_all;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;155;2;160;;;;vpos;;v;;a;;r&#10;Definition&#10;    find_all($sort = &apos;id&apos;, $order = &apos;asc&apos;)&#10;&#10;Description&#10;     &#10;&#10;Parameters:&#10;     $sort&#10;     $order;;d1,156;;b0,0;;m0;;e $sort;;p $order;;p">
+<treenode node="flushLog;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;207;2;212;;;;vpos;;v;;a;;r;;d27,207;;b1,0;;m0;;e">
 </treenode>
-<treenode node="get_by_id;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;73;2;78;;;;vpos;;v;;a;;r&#10;Definition&#10;    get_by_id($id)&#10;&#10;Description&#10;     Buscar por ID&#10;&#10;Parameters:&#10;     $id;;d1,74;;b0,0;;m0;;e $id;;p">
+<treenode node="get;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f11;88;2;98;;;;vpos;;v;;a;;r;;d80,88;;b1,0;;m0;;esearch;;pisarray;;pstrict;;pobj;;p">
 </treenode>
-<treenode node="get_by_password;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;91;2;96;;;;vpos;;v;;a;;r&#10;Definition&#10;    get_by_password($password)&#10;&#10;Description&#10;      method busqueda por contraseña&#10;&#10;Parameters:&#10;     $password;;d1,92;;b0,0;;m0;;e $password;;p">
+<treenode node="getByField;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;108;2;112;;;;vpos;;v;;a;;r;;d64,108;;b1,0;;m0;;efield;;pvalue;;pisarray;;p">
 </treenode>
-<treenode node="getById;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;79;2;84;;;;vpos;;v;;a;;r;;d1,80;;b0,0;;m0;;eid;;p">
+<treenode node="getById;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;102;2;104;;;;vpos;;v;;a;;r;;d29,102;;b1,0;;m0;;eid;;p">
 </treenode>
-<treenode node="insert;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;137;2;141;;;;vpos;;v;;a;;r&#10;Definition&#10;    insert($data)&#10;&#10;Description&#10;     &#10;&#10;Parameters:&#10;     $data;;d1,138;;b0,0;;m0;;e $data;;p">
+<treenode node="getRecords;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f11;46;2;58;;;;vpos;;v;;a;;r;;d51,46;;b1,0;;m0;;elimit;;pstart;;p">
 </treenode>
-<treenode node="insertMultiple;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;143;2;146;;;;vpos;;v;;a;;r;;d1,144;;b0,0;;m0;;edata;;p">
+<treenode node="grid;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f11;62;2;84;;;;vpos;;v;;a;;r;;d42,62;;b1,0;;m0;;esearch;;p">
 </treenode>
-<treenode node="ItemAll;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;33;2;38;;;;vpos;;v;;a;;r&#10;Definition&#10;    ItemAll()&#10;&#10;Description&#10;      todos los elementos de tabla&#10;&#10;Parameters:&#10;    retorna - todos los elementos de tabla;;d1,34;;b0,0;;m0;;e">
+<treenode node="insert;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;126;2;134;;;;vpos;;v;;a;;r;;d30,126;;b1,0;;m0;;edata;;p">
 </treenode>
-<treenode node="login;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;104;2;117;;;;vpos;;v;;a;;r&#10;Definition&#10;    login($email,$password)&#10;&#10;Description&#10;      method Validar correo y contraseña&#10;&#10;Parameters:&#10;     $email&#10;     $password;;d1,105;;b0,0;;m0;;e $email;;p $password;;p">
+<treenode node="objectToArray;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;172;2;180;;;;vpos;;v;;a;;r;;d37,172;;b1,0;;m0;;edata;;p">
 </treenode>
-<treenode node="loginEmpleados;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;118;2;130;;;;vpos;;v;;a;;r;;d1,119;;b0,0;;m0;;ecedula;;ppassword;;p">
+<treenode node="save;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;160;2;168;;;;vpos;;v;;a;;r;;d28,160;;b1,0;;m0;;edata;;p">
 </treenode>
-<treenode node="num_post;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;42;2;46;;;;vpos;;v;;a;;r;;d1,43;;b0,0;;m0;;e">
+<treenode node="sceWatchdog;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;184;2;203;;;;vpos;;v;;a;;r;;d58,184;;b1,0;;m0;;edata;;pid;;paction;;pbefore;;p">
 </treenode>
-<treenode node="total_resultado;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;23;2;26;;;;vpos;;v;;a;;r;;d1,24;;b0,0;;m0;;e">
+<treenode node="update;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;146;2;156;;;;vpos;;v;;a;;r;;d40,146;;b1,0;;m0;;edata;;pid;;p">
 </treenode>
-<treenode node="update;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f1;168;2;172;;;;vpos;;v;;a;;r&#10;Definition&#10;    update($id, $data)&#10;&#10;Description&#10;     /&#10;&#10;Parameters:&#10;     $id&#10;     $data;;d1,169;;b0,0;;m0;;e $id;;p $data;;p">
+<treenode node="where;PHP:Function Name;C:\xampp\htdocs\-lucianowatches\application\core\SCE_Model.php;f8;116;2;122;;;;vpos;;v;;a;;r;;d50,116;;b1,0;;m0;;ewhere;;pisarray;;p">
 </treenode>
 </treenode>
 <treenode node="Secure;PHP:Class Name;C:\xampp\htdocs\-lucianowatches\application\controllers\Secure.php;f0;2;1;19;;;;vpos;;v;;aCI_Controller;;c;;r;;d0,3;;b0,0;;m0;;e">

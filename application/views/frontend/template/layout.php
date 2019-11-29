@@ -9,7 +9,7 @@
 		</title>
 		<!-- favicon -->
 		<link rel="shortcut icon" type="image/favicon" href="<?= base_url('src/lucianowatches-favicon.png');?>">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat|Poppins:300,400,500,900&display=swap" rel="stylesheet">
 		<!-- css/ uikit -->
 		<?= html('css','src/theme/css/uikit.min');?>
 		<?= html('css','src/theme/css/components/slideshow');?>
