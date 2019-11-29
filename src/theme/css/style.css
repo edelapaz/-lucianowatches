@@ -1,12 +1,94 @@
-html,body
+@charset "utf-8";
+/* ----------------------------------
+Name:    Lucianowatches
+Author:  Multiserviciosweb
+E-mail:  info@multiserviciosweb.com.do
+Version: 1.5vs
+Date:    28/11/2019
+----------------------------------
+*/
+
+/* ===================================
+Google Font
+====================================== */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800&display=swap');
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap');
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i&display=swap&subset=cyrillic,latin-ext,vietnamese');
+
+/* ===================================
+Typography
+====================================== */
+body
 {
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	line-height: 23px;
+	font-weight: 400;
+	letter-spacing: 0.5px;
+	color: #000;
+}
+body, html
+{
+	height: 100%;
+}
+/* heading */
+h1, h2, h3, h4, h5, h6
+{
+	font-family: 'Poppins', sans-serif;
 	margin: 0;
 	padding: 0;
+	color: #000;
+}
+h1
+{
+	font-size: 50px;
+	line-height: 60px;
+}
+h2
+{
+	font-size: 35px;
+	line-height: 40px;
+}
+h3
+{
+	font-size: 30px;
+	line-height: 35px;
+}
+h4
+{
+	font-size: 25px;
+	line-height: 33px;
+}
+h5
+{
+	font-size: 20px;
+	line-height: 30px;
+}
+h6
+{
+	font-size: 18px;
+	line-height: 23px;
 }
 a
 {
-	text-decoration: none;
 	transition: all 0.20s;
+}
+a:hover
+{
+	text-decoration: none;
 }
 h1,h2,h3
 {
@@ -15,30 +97,239 @@ h1,h2,h3
 header.header
 {
 	background: #000;
-	padding: 10px 0 20px 0;
-	color:#FFF;
+	padding-bottom: 0;
+	color: #FFF;
+	z-index: 1000;
 }
 .md-display-none
 {
-	margin-top: 4px;
-	border-bottom:1px solid rgba(33, 33, 33,0.50);
+	background: #333;
+	padding: 1px 0;
+	border-bottom: 1px solid rgba(33, 33, 33,0.50);
+}
+/*
+logo*/
+#uk-logo
+{
+	margin-top: 10px;
+	font-size: 28px;
+	color: #FFF;
+}
+#uk-logo > a
+{
+	color: #FFF;
+}
+#uk-logo a > strong
+{
+	color: #E2524A;
+	font-weight: bold;
 }
 /*
 menu_principal
 */
-#menu_principal
+#menu_principal,
+.nav_icon
 {
 	list-style: none;
+	margin-top: 0;
+}
+.nav_icon li > a
+{
+	display: block;
+	padding: 4px;
+}
+.nav_icon li:hover > a
+{
+	color: #E2524A;
+}
+#menu_principal
+{
 	text-align: right;
 }
-#menu_principal li
+#menu_principal li,
+.nav_icon li
 {
 	display: inline-block;
 	vertical-align: top;
 }
 #menu_principal li > a
 {
+	font-size: 12px;
 	display: block;
 	padding: 4px 10px;
 	text-transform: uppercase;
+	border-bottom: 0px;
+	color: #FFF;
+	font-weight: 100;
+}
+#menu_principal li:hover > a,
+#menu_principal li:focus > a
+{
+	color: #E2524A;
+	border-bottom: 1px solid #E2524A;
+}
+/*
+epn-slide
+*/
+#epn-slide
+{
+	position: relative;
+}
+#epn-slide .uk-overlay-panel > div
+{
+	position: absolute;
+	bottom: 50%;
+	width: 40%;
+	transform: translateY(50%);
+	left: 20%;
+}
+#epn-slide .uk-overlay-panel > div > h3
+{
+	color: #e2524a;
+	font-weight: bold;
+	font-size: 45px;
+	line-height: 55px;
+	font-family: 'Poppins', sans-serif;
+}
+#epn-slide .uk-overlay-panel > div > p
+{
+	color: #333;
+	font-size: 14px;
+}
+#epn-slide .uk-overlay-panel > div > p a.epn-btn,
+.epn-btn
+{
+	padding: 10px 30px 10px 30px;
+	font-size: 14px;
+	border: 1px solid #212121;
+	background-color: #212121;
+	color: #fff;
+	outline: none;
+	border-radius: 0px;
+	display: inline-block;
+	font-weight: 400;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	border: 1px solid transparent;
+	padding: 10px 20px;
+	font-size: 1rem;
+	line-height: 1.5;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#epn-slide .uk-overlay-panel > div > p a.epn-btn:hover,#epn-slide .uk-overlay-panel > div > p a.epn-btn:focus,
+.epn-btn:hover,.epn-btn:focus
+{
+	background-color: #e2524a;
+	color: #fff!important;
+	border: 1px solid #e2524a;
+	transition: all 0.3s ease-in-out 0s;
+}
+/*
+epn-icon-cart
+*/
+nav#epn-icon-cart
+{
+	float: right;
+	color: #FFF;
+	background: none;
+}
+nav#epn-icon-cart ul.uk-navbar-nav > li > a
+{
+	color: #eee !important;
+	font-weight: 100;
+}
+.uk-parent.uk-open > .uk-dropdown-navbar
+{
+	background: #333 !important;
+}
+.uk-navbar-nav>li.uk-open>a, .uk-navbar-nav>li:hover>a, .uk-navbar-nav>li>a:focus
+{
+	background: none;
+}
+/*epn-shop*/
+.epn-shop
+{
+	background: #fff;
+}
+.epn-shop > span
+{
+	font-weight: 600;
+}
+footer
+{
+	background: #000;
+	color: #FFF;
+	padding: 10px;
+}
+.uk-footer
+{
+	background: #e2524a;
+}
+.uk-footer p
+{
+	margin-bottom: 0;
+	font-size: 14px;
+	color: #FFF;
+}
+.uk-panel-newsletter,
+.uk-panel-newsletter > h3,
+.uk-panel-newsletter > span
+{
+	color: #FFF;
+}
+.uk-panel-newsletter h3,
+.uk-panel-newsletter span
+{
+	display: block;
+}
+.uk-panel-newsletter h3
+{
+	margin-bottom: 10px;
+}
+.uk-card
+{
+	padding: 30px;
+	display: flex;
+	align-items: center;
+	border: 1px solid #eeeeee;
+	cursor: pointer;
+}
+.uk-card .uk-img
+{
+	font-size: 28px;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	color: #333;
+	padding-right: 20px;
+}
+.uk-card .uk-img:hover
+{
+	color: #e2524a;
+	transform: rotateX(180deg);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.uk-card-text:hover span
+{
+	color: #e2524a;
+	font-weight: bold;
+}
+.uk-card-text p
+{font-family: 'Poppins', sans-serif;
+	padding-top: 0;
+	margin-top: 0;
+	line-height: normal;
+	font-size: 12px;
+	font-weight: 100;
+}
+.uk-card-text
+{
+	padding-left: 15px;
+	border-left: 1px solid #eeeeee;
+	display: inline-block;
 }
